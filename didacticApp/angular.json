@@ -22,7 +22,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "src/assets",
+                "input": "node_modules/leaflet/dist/images/",
                 "output": "assets"
               },
               {
@@ -31,7 +31,10 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["src/theme/variables.scss", "src/global.scss"],
+            "styles": ["src/theme/variables.scss", 
+            "src/global.scss", 
+            "node_modules/leaflet/dist/leaflet.css",
+            "node_modules/leaflet-routing-machine/dist/leaflet-routing-machine.css"],
             "scripts": []
           },
           "configurations": {
