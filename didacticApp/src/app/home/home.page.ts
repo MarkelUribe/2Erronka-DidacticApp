@@ -22,6 +22,14 @@ export class HomePage implements OnInit {
     this.initMap();
   }
 
+  getDistance(): number{
+    var userPosition = [0.0, 0.0];
+    
+    var distance = Math.sqrt(Math.pow(userPosition[0] - this.lat, 2) - Math.pow(userPosition[1] - this.lng, 2));
+
+    return distance
+  }
+
   private initMap(): void {
     this.map = new L.Map('map');
 
