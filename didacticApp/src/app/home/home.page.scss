@@ -43,3 +43,14 @@
 #map {
   height: 100%;
 }
+
+#centerButton{
+  position: absolute;
+  z-index: 0;
+  left: 99%;
+  top: 1%;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgb(88, 88, 88);
+  background-color: rgb(167, 167, 167);
+}

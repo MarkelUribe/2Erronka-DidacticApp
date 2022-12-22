@@ -15,31 +15,33 @@ export class HomePage implements OnInit {
   private map: any;
   durangoLat: number = 43.17164;
   durangoLng: number = -2.634701;
-  zoom: number = 40;
+  zoom: number = 30;
 
-  static playerPosition: number[] = [0, 0, 0];
+  playerPosition: number[] = [0, 0, 0];
 
   constructor(private geo: Geolocation) {}
 
   ngOnInit(): void {
     this.whereAmI();
     this.initMap();
-    this.trackingThread();
+    //this.trackingThread();
   }
 
-
-  trackingThread(){
+  trackingThread() {
+    let lat = 0.0;
+    let lng = 0.0;
+    setInterval(function () {
       let lat = this.playerPosition[0];
       let lng = this.playerPosition[1];
-      setInterval(function(){ 
-        number[] pPos = this.getPosition();
-        let lat = this.playerPosition[0];
-        let lng = this.playerPosition[1];
       this.map.flyTo([lat, lng], 15);
-     }, 1000);
+    }, 1000);
+  }
+
+  jokalariarenPosizioraJoan(){
+    if(this.getPlayersDistanceFromDurangoInKM() < 8){
+    this.map.flyTo([this.playerPosition[0], this.playerPosition[1]],this.zoom);
     }
-      
-    
+  }
 
   whereAmI() {
     /*this.geo
@@ -64,8 +66,22 @@ export class HomePage implements OnInit {
         this.playerPosition[0] = data.coords.latitude;
         this.playerPosition[1] = data.coords.longitude;
         this.playerPosition[2] = data.coords.heading;
+
+        console.log("Durangotik "+this.getPlayersDistanceFromDurangoInKM()+"Km-ra zaude");
+        if(this.getPlayersDistanceFromDurangoInKM() < 8){
+          this.map.flyTo([this.playerPosition[0], this.playerPosition[1]],this.zoom);
+        }else{
+          alert("Durangotik kanpo zaude");
+        }
+
+
         console.log(
-          'lat= ' + this.playerPosition[0] + ' lng= ' + this.playerPosition[1]+ ' head= ' + this.playerPosition[2]
+          'lat= ' +
+            this.playerPosition[0] +
+            ' lng= ' +
+            this.playerPosition[1] +
+            ' head= ' +
+            this.playerPosition[2]
         );
       } else {
         console.log('Ez dago coord-ik');
@@ -76,7 +92,7 @@ export class HomePage implements OnInit {
   getPlayersDistanceFromDurangoInKM(): number {
     var distance =
       Math.sqrt(
-        Math.pow(this.playerPosition[0] - this.durangoLat, 2) -
+        Math.pow(this.playerPosition[0] - this.durangoLat, 2) +
           Math.pow(this.playerPosition[1] - this.durangoLng, 2)
       ) * 111.1;
 
@@ -94,8 +110,14 @@ export class HomePage implements OnInit {
       }, 10);
     });
 
+    var southWest = new L.LatLng(43.153427, -2.691464),
+      northEast = new L.LatLng(43.193779, -2.574673),
+      mybounds = new L.LatLngBounds(southWest, northEast);
+
+      this.map.setMaxBounds(mybounds);
+
     let icon = L.icon({
-      iconUrl: '../../assets/icon/navigation-icon.png',
+      iconUrl: './assets/icon/navigation-icon.png',
 
       iconSize: [30, 40],
     });
@@ -109,8 +131,11 @@ export class HomePage implements OnInit {
     marker.bindPopup(popup);
 
     this.map.setView([this.durangoLat, this.durangoLng], this.zoom);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      minZoom: 15,
+    }).addTo(
       this.map
     );
   }
