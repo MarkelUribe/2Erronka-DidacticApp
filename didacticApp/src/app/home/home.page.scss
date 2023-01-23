@@ -28,6 +28,7 @@
 
 .map-container {
   position: absolute;
+  z-index: 0;
   top: 0;
   left: 0;
   right: 0;
@@ -38,18 +39,19 @@
 .map-frame {
   border: 1px solid rgb(167, 167, 167);
   height: 100%;
+  z-index: 0;
 }
  
 #map {
   height: 100%;
+  z-index: 0;
 }
 
 #centerButton{
   position: absolute;
-  z-index: 0;
-  left: 99%;
+  z-index: 100;
+  left: 85%;
   top: 1%;
-  width: 30px;
   height: 30px;
   border: 1px solid rgb(88, 88, 88);
   background-color: rgb(167, 167, 167);

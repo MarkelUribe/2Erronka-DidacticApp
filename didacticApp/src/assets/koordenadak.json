@@ -1,0 +1,42 @@
+{
+    "Durango":{
+        "izena": "Durango",
+        "lat": 43.17164,
+        "lon": -2.634701
+    },
+    "Santa Anako Arkua":{
+        "izena": "Santa Anako Arkua",
+        "lat": 43.19716,
+        "lon": -2.64209
+    },
+    "Durangoko bonbardaketa":{
+        "izena": "Durangoko bonbardaketa",
+        "lat": 43.16845,
+        "lon": -2.63115
+    },
+    "Landako Gunea":{
+        "izena": "Landako Gunea",
+        "lat": 43.17171,
+        "lon": -2.63048
+    },
+    "Liburu eta Disko Azoka":{
+        "izena": "Liburu eta Disko Azoka",
+        "lat": 43.17171,
+        "lon": -2.63048
+    },
+    "San Agustin Kultur Gunea":{
+        "izena": "San Agustin Kultur Gunea",
+        "lat": 43.16741,
+        "lon": -2.63283
+    },
+    "San Faustoko Jaiak":{
+        "izena": "San Faustoko Jaiak",
+        "lat": 43.16723,
+        "lon": -2.63202
+    },
+    "Anbotoko Mariren Kondaira":{
+        "izena": "Anbotoko Mariren Kondaira",
+        "lat": 43.16401,
+        "lon": -2.62216
+    }
+}

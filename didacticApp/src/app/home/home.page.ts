@@ -5,6 +5,7 @@ import 'leaflet-routing-machine';
 import { icon, Marker } from 'leaflet';
 import { Inject, Input, OnInit } from '@angular/core';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+import * as koordenadak from "../../assets/koordenadak.json";
 
 @Component({
   selector: 'app-home',
@@ -22,24 +23,19 @@ export class HomePage implements OnInit {
   constructor(private geo: Geolocation) {}
 
   ngOnInit(): void {
+    console.log(koordenadak.Durango);
+
     this.whereAmI();
     this.initMap();
-    //this.trackingThread();
   }
 
-  trackingThread() {
-    let lat = 0.0;
-    let lng = 0.0;
-    setInterval(function () {
-      let lat = this.playerPosition[0];
-      let lng = this.playerPosition[1];
-      this.map.flyTo([lat, lng], 15);
-    }, 1000);
-  }
 
-  jokalariarenPosizioraJoan(){
-    if(this.getPlayersDistanceFromDurangoInKM() < 8){
-    this.map.flyTo([this.playerPosition[0], this.playerPosition[1]],this.zoom);
+  jokalariarenPosizioraJoan() {
+    if (this.getPlayersDistanceFromDurangoInKM() < 8) {
+      this.map.flyTo(
+        [this.playerPosition[0], this.playerPosition[1]],
+        this.zoom
+      );
     }
   }
 
@@ -67,13 +63,20 @@ export class HomePage implements OnInit {
         this.playerPosition[1] = data.coords.longitude;
         this.playerPosition[2] = data.coords.heading;
 
-        console.log("Durangotik "+this.getPlayersDistanceFromDurangoInKM()+"Km-ra zaude");
-        if(this.getPlayersDistanceFromDurangoInKM() < 8){
-          this.map.flyTo([this.playerPosition[0], this.playerPosition[1]],this.zoom);
-        }else{
-          alert("Durangotik kanpo zaude");
+        console.log(
+          'Durangotik ' +
+            this.getPlayersDistanceFromDurangoInKM() +
+            'Km-ra zaude'
+        );
+        if (this.getPlayersDistanceFromDurangoInKM() < 8) {
+          this.map.flyTo(
+            [this.playerPosition[0], this.playerPosition[1]],
+            this.zoom
+          );
+        } else {
+          //alert("Durangotik kanpo zaude");
+          console.log('Durangotik kanpo zaude');
         }
-
 
         console.log(
           'lat= ' +
@@ -110,11 +113,12 @@ export class HomePage implements OnInit {
       }, 10);
     });
 
+    //Durango
     var southWest = new L.LatLng(43.153427, -2.691464),
       northEast = new L.LatLng(43.193779, -2.574673),
       mybounds = new L.LatLngBounds(southWest, northEast);
 
-      this.map.setMaxBounds(mybounds);
+    this.map.setMaxBounds(mybounds);
 
     let icon = L.icon({
       iconUrl: './assets/icon/navigation-icon.png',
@@ -131,12 +135,10 @@ export class HomePage implements OnInit {
     marker.bindPopup(popup);
 
     this.map.setView([this.durangoLat, this.durangoLng], this.zoom);
-    
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
       minZoom: 15,
-    }).addTo(
-      this.map
-    );
+    }).addTo(this.map);
   }
 }
