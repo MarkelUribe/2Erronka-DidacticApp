@@ -23,6 +23,8 @@
     "@ionic/angular": "^6.1.9",
     "ionicons": "^6.0.3",
     "leaflet": "^1.9.3",
+    "leaflet-marker-rotation": "^0.4.0",
+    "leaflet-rotatedmarker": "^0.2.0",
     "leaflet-routing-machine": "^3.2.12",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

@@ -4,9 +4,10 @@ import * as L from 'leaflet';
 import 'leaflet-routing-machine';
 import { icon, Marker } from 'leaflet';
 import { Inject, Input, OnInit } from '@angular/core';
+import 'leaflet-rotatedmarker';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
-import * as koordenadak from "../../assets/koordenadak.json";
-
+import * as jsonData from '../../assets/koordenadak.json';
+import { fromEventPattern } from 'rxjs';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -14,21 +15,18 @@ import * as koordenadak from "../../assets/koordenadak.json";
 })
 export class HomePage implements OnInit {
   private map: any;
-  durangoLat: number = 43.17164;
-  durangoLng: number = -2.634701;
-  zoom: number = 30;
-
+  zoom: number = 17.5;
+  koordenadak: any = jsonData;
   playerPosition: number[] = [0, 0, 0];
+  playerMarker: any;
 
   constructor(private geo: Geolocation) {}
 
   ngOnInit(): void {
-    console.log(koordenadak.Durango);
-
     this.whereAmI();
     this.initMap();
+    //this.durangokoKokapenenMarkakJarri();
   }
-
 
   jokalariarenPosizioraJoan() {
     if (this.getPlayersDistanceFromDurangoInKM() < 8) {
@@ -40,29 +38,13 @@ export class HomePage implements OnInit {
   }
 
   whereAmI() {
-    /*this.geo
-      .getCurrentPosition({
-        timeout: 10000,
-        enableHighAccuracy: true,
-      })
-      .then((res) => {
-        this.playerPosition[0] = res.coords.latitude;
-        this.playerPosition[1] = res.coords.longitude;
-        alert(
-          'lat= ' + this.playerPosition[0] + ' lng= ' + this.playerPosition[1]
-        );
-      })
-      .catch((e) => {
-        console.log(e);
-      });*/
-
     let watch = this.geo.watchPosition();
     watch.subscribe((data) => {
       if ('coords' in data) {
         this.playerPosition[0] = data.coords.latitude;
         this.playerPosition[1] = data.coords.longitude;
         this.playerPosition[2] = data.coords.heading;
-
+        this.playerIconUpdate();
         console.log(
           'Durangotik ' +
             this.getPlayersDistanceFromDurangoInKM() +
@@ -93,14 +75,61 @@ export class HomePage implements OnInit {
   }
 
   getPlayersDistanceFromDurangoInKM(): number {
-    var distance =
-      Math.sqrt(
-        Math.pow(this.playerPosition[0] - this.durangoLat, 2) +
-          Math.pow(this.playerPosition[1] - this.durangoLng, 2)
+    return Math.sqrt(
+        Math.pow(this.playerPosition[0] - this.koordenadak.Durango.lat, 2) +
+          Math.pow(this.playerPosition[1] - this.koordenadak.Durango.lon, 2)
       ) * 111.1;
-
-    return distance;
   }
+
+  playerIconUpdate() {
+    let icon = L.icon({
+      iconUrl: '../../assets/icon/navigationicon.png',
+      iconSize: [40, 40],
+    });
+
+    if (this.playerMarker != null) {
+      this.map.removeLayer(this.playerMarker);
+    }
+
+    this.playerMarker = L.marker(
+      [this.playerPosition[0], this.playerPosition[1]],
+      {
+        icon: icon,
+      }
+    ).addTo(this.map);
+
+    if (this.playerPosition[2] != null) {
+      this.playerMarker.setRotationAngle(this.playerPosition[2]);
+    }
+
+    let popup = L.popup().setContent('<h1>Do not click me</h1>');
+
+    this.playerMarker.bindPopup(popup);
+  }
+
+  //durangokoKokapenenMarkakJarri(){
+  //  for(let value in this.koordenadak){
+  //    if(value.izena == "Durango"){
+  //      return false;
+  //    }
+  //    console.log(value);
+  //    let icon = L.icon({
+  //      iconUrl: '../../assets/icon/navigationicon.png',
+  //      iconSize: [40, 40],
+  //    });
+  //    let marker = L.marker(
+  //      [value.lat, value.lon],
+  //      {
+  //        icon: icon,
+  //      }
+  //    ).addTo(this.map);
+  //
+  //    let popup = L.popup().setContent(value.izena);
+  //
+  //    marker.bindPopup(popup);
+  //    return false;
+  //  });
+  //}
 
   private initMap(): void {
     this.map = new L.Map('map');
@@ -120,21 +149,10 @@ export class HomePage implements OnInit {
 
     this.map.setMaxBounds(mybounds);
 
-    let icon = L.icon({
-      iconUrl: './assets/icon/navigation-icon.png',
-
-      iconSize: [30, 40],
-    });
-
-    let marker = L.marker([this.durangoLat, this.durangoLng], {
-      icon: icon,
-    }).addTo(this.map);
-
-    let popup = L.popup().setContent('<h1>Do not click me</h1>');
-
-    marker.bindPopup(popup);
-
-    this.map.setView([this.durangoLat, this.durangoLng], this.zoom);
+    this.map.setView(
+      [this.koordenadak.Durango.lat, this.koordenadak.Durango.lon],
+      this.zoom
+    );
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
