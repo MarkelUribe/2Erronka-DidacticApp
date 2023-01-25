@@ -4,40 +4,53 @@
         "lat": 43.17164,
         "lon": -2.634701
     },
-    "Santa Anako Arkua":{
-        "izena": "Santa Anako Arkua",
-        "lat": 43.19716,
-        "lon": -2.64209
-    },
-    "Durangoko bonbardaketa":{
-        "izena": "Durangoko bonbardaketa",
-        "lat": 43.16845,
-        "lon": -2.63115
-    },
     "Landako Gunea":{
         "izena": "Landako Gunea",
         "lat": 43.17171,
-        "lon": -2.63048
-        
+        "lon": -2.63048,
+        "kalea": "Landako Etorbidea, 6",
+        "img": "3. IRUDIA.png"
     },
     "Liburu eta Disko Azoka":{
         "izena": "Liburu eta Disko Azoka",
         "lat": 43.17171,
-        "lon": -2.63048
+        "lon": -2.63048,
+        "kalea": "Landako Etorbidea, 6",
+        "img": "6. IRUDIA.png"
+    },
+    "Durangoko bonbardaketa":{
+        "izena": "Durangoko bonbardaketa",
+        "lat": 43.16845,
+        "lon": -2.63115,
+        "kalea": "Uribarri Kalea, s/n",
+        "img": "11. IRUDIA.png"
     },
     "San Agustin Kultur Gunea":{
         "izena": "San Agustin Kultur Gunea",
         "lat": 43.16741,
-        "lon": -2.63283
+        "lon": -2.63283,
+        "kalea": "San Agustinalde 12",
+        "img": "13. IRUDIA.png"
     },
     "San Faustoko Jaiak":{
         "izena": "San Faustoko Jaiak",
         "lat": 43.16723,
-        "lon": -2.63202
+        "lon": -2.63202,
+        "kalea": "Barrenkalea Kalea, 17",
+        "img": "14. IRUDIA.png"
+    },
+    "Santa Anako Arkua":{
+        "izena": "Santa Anako Arkua",
+        "lat": 43.19716,
+        "lon": -2.64209,
+        "kalea": "Santanoste Kalea, 2",
+        "img": "15. IRUDIA.png"
     },
     "Anbotoko Mariren Kondaira":{
         "izena": "Anbotoko Mariren Kondaira",
         "lat": 43.16401,
-        "lon": -2.62216
+        "lon": -2.62216,
+        "kalea": "Antso Estegiz Zumardia, 25002",
+        "img": "17. IRUDIA.png"
     }
 }

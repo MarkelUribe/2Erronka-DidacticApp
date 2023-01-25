@@ -19,13 +19,15 @@ export class HomePage implements OnInit {
   koordenadak: any = jsonData;
   playerPosition: number[] = [0, 0, 0];
   playerMarker: any;
+  tracking: boolean = true;
 
   constructor(private geo: Geolocation) {}
 
   ngOnInit(): void {
     this.whereAmI();
     this.initMap();
-    //this.durangokoKokapenenMarkakJarri();
+    this.durangokoKokapenenMarkakJarri();
+    console.log();
   }
 
   jokalariarenPosizioraJoan() {
@@ -35,6 +37,7 @@ export class HomePage implements OnInit {
         this.zoom
       );
     }
+    this.tracking = true;
   }
 
   whereAmI() {
@@ -45,16 +48,23 @@ export class HomePage implements OnInit {
         this.playerPosition[1] = data.coords.longitude;
         this.playerPosition[2] = data.coords.heading;
         this.playerIconUpdate();
+
+        console.log('Tracking: ', this.tracking);
+        this.map.on('dragstart', e => {
+              this.tracking = false;
+              console.log('pantaila mugitu da. Tracking:', this.tracking);
+        });
+
         console.log(
           'Durangotik ' +
             this.getPlayersDistanceFromDurangoInKM() +
             'Km-ra zaude'
         );
-        if (this.getPlayersDistanceFromDurangoInKM() < 8) {
-          this.map.flyTo(
-            [this.playerPosition[0], this.playerPosition[1]],
-            this.zoom
-          );
+        if (
+          this.getPlayersDistanceFromDurangoInKM() < 8 &&
+          this.tracking == true
+        ) {
+          this.jokalariarenPosizioraJoan();
         } else {
           //alert("Durangotik kanpo zaude");
           console.log('Durangotik kanpo zaude');
@@ -75,10 +85,12 @@ export class HomePage implements OnInit {
   }
 
   getPlayersDistanceFromDurangoInKM(): number {
-    return Math.sqrt(
+    return (
+      Math.sqrt(
         Math.pow(this.playerPosition[0] - this.koordenadak.Durango.lat, 2) +
           Math.pow(this.playerPosition[1] - this.koordenadak.Durango.lon, 2)
-      ) * 111.1;
+      ) * 111.1
+    );
   }
 
   playerIconUpdate() {
@@ -107,29 +119,32 @@ export class HomePage implements OnInit {
     this.playerMarker.bindPopup(popup);
   }
 
-  //durangokoKokapenenMarkakJarri(){
-  //  for(let value in this.koordenadak){
-  //    if(value.izena == "Durango"){
-  //      return false;
-  //    }
-  //    console.log(value);
-  //    let icon = L.icon({
-  //      iconUrl: '../../assets/icon/navigationicon.png',
-  //      iconSize: [40, 40],
-  //    });
-  //    let marker = L.marker(
-  //      [value.lat, value.lon],
-  //      {
-  //        icon: icon,
-  //      }
-  //    ).addTo(this.map);
-  //
-  //    let popup = L.popup().setContent(value.izena);
-  //
-  //    marker.bindPopup(popup);
-  //    return false;
-  //  });
-  //}
+  durangokoKokapenenMarkakJarri() {
+    var data = this.koordenadak;
+    Object.keys(data).forEach((key) => {
+      if (data[key].izena == 'Durango') {
+        return false;
+      } else if (data[key].izena == null) {
+        return false;
+      }
+
+      let icon = L.icon({
+        iconUrl: '../../assets/img/' + data[key].img,
+        iconSize: [40, 40],
+        //html: '<span style="border-radius:25px;" />',
+      });
+      let marker = L.marker([data[key].lat, data[key].lon], {
+        icon: icon,
+      }).addTo(this.map);
+
+      let popup = L.popup().setContent(data[key].izena);
+
+      marker.bindPopup(popup);
+      return false;
+    });
+
+    return false;
+  }
 
   private initMap(): void {
     this.map = new L.Map('map');
