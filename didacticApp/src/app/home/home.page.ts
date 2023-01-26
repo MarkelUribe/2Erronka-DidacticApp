@@ -27,7 +27,7 @@ export class HomePage implements OnInit {
     this.whereAmI();
     this.initMap();
     this.durangokoKokapenenMarkakJarri();
-    console.log();
+    this.aurkezpenaScript();
   }
 
   jokalariarenPosizioraJoan() {
@@ -55,17 +55,17 @@ export class HomePage implements OnInit {
               console.log('pantaila mugitu da. Tracking:', this.tracking);
         });
 
-        console.log(
-          'Durangotik ' +
-            this.getPlayersDistanceFromDurangoInKM() +
-            'Km-ra zaude'
-        );
+        //console.log(
+        //  'Durangotik ' +
+        //    this.getPlayersDistanceFromDurangoInKM() +
+        //    'Km-ra zaude'
+        //);
         if (
           this.getPlayersDistanceFromDurangoInKM() < 8 &&
           this.tracking == true
         ) {
           this.jokalariarenPosizioraJoan();
-        } else {
+        } else if(this.getPlayersDistanceFromDurangoInKM() > 8) {
           //alert("Durangotik kanpo zaude");
           console.log('Durangotik kanpo zaude');
         }
@@ -95,8 +95,8 @@ export class HomePage implements OnInit {
 
   playerIconUpdate() {
     let icon = L.icon({
-      iconUrl: '../../assets/icon/navigationicon.png',
-      iconSize: [40, 40],
+      iconUrl: '../../assets/img/1. IRUDIA.png',
+      iconSize: [75, 75],
     });
 
     if (this.playerMarker != null) {
@@ -174,4 +174,13 @@ export class HomePage implements OnInit {
       minZoom: 15,
     }).addTo(this.map);
   }
+
+  public aurkezpenaScript(){
+    const popupContainer = document.getElementById('popupContainer');
+    popupContainer.style.display="block";
+
+
+    document.getElementById('mariAurkezepenAudio').play();
+  }
+
 }

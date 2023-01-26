@@ -1,14 +1,12 @@
-.leaflet-default-icon-path {
-  background-image: url(https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png);
-}
+
 #container {
   text-align: center;
-
   position: absolute;
   left: 0;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+ 
 }
 
 #container strong {
@@ -52,7 +50,7 @@
   position: absolute;
   z-index: 100;
   right: 0;
-  padding: 5px;
+  padding: 10px;
   margin: 5px;
   border-radius: 5px;
   border: 1px solid rgb(122, 152, 160);
@@ -64,3 +62,21 @@
   }
 }
 
+#popupContainer{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(141, 233, 233, 0.8);
+  display: none;
+  overflow: hidden;
+  
+  audio{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+  }
+}
+
+.pertsonaiak{
+  width: 35%;
+}

@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'hasiera',
+    loadChildren: () => import('./hasiera/hasiera.module').then( m => m.HasieraPageModule)
+  },
 ];
 
 @NgModule({
