@@ -27,7 +27,7 @@ export class HomePage implements OnInit {
     this.whereAmI();
     this.initMap();
     this.durangokoKokapenenMarkakJarri();
-    this.aurkezpenaScript();
+    //this.aurkezpenaScript();
   }
 
   jokalariarenPosizioraJoan() {
@@ -114,9 +114,6 @@ export class HomePage implements OnInit {
       this.playerMarker.setRotationAngle(this.playerPosition[2]);
     }
 
-    let popup = L.popup().setContent('<h1>Do not click me</h1>');
-
-    this.playerMarker.bindPopup(popup);
   }
 
   durangokoKokapenenMarkakJarri() {
@@ -180,7 +177,7 @@ export class HomePage implements OnInit {
     popupContainer.style.display="block";
 
 
-    document.getElementById('mariAurkezepenAudio').play();
+    //document.getElementById('mariAurkezepenAudio').play();
   }
 
 }

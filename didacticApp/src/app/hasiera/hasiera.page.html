@@ -1,9 +1,20 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>hasiera</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content>
+  <div class="container">
+    <img class='pertsonaia' id="p1" src='../../assets/img/1. IRUDIA.png'>
+    <img class='pertsonaia' id="p2" src='../../assets/img/2. IRUDIA.png'>
 
+    <div id="kontrolak">
+      <button (click)="audioakHasi()">Audioa Hasi/Gelditu</button>
+      <button (click)="skip()">skip -></button>
+      <button href="/home">Home</button>  
+    </div>
+    
+    <div id="hasiBotoiaDiv">
+      <a herf="" (click)="hasiHasiera()" id="hasiBotoia"><img src="../../assets/img/hasi.png"></a>
+      <h4>Eman botoiari jokoa hasteko!</h4>
+    </div>
+    
+  </div>
 </ion-content>

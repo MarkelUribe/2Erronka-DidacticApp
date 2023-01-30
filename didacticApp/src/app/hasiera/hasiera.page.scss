@@ -1,0 +1,32 @@
+.container{
+    background-color: aquamarine;
+    height: 100%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    .pertsonaia{
+        width: 250px;
+    }
+   
+
+    button{
+        padding: 15px;
+        margin: 15px;
+        //position: absolute;
+        //bottom: 10%;
+    }
+
+    #kontrolak{
+        margin-top: 250px;
+    }
+
+    #hasiBotoiaDiv{
+        text-align: center;
+        position: absolute;
+        bottom: 10%;
+        img{
+            
+            width: 100px;
+        }
+    }
+}
