@@ -14,31 +14,53 @@ export class HasieraPage implements OnInit {
     this.kontrolak = document.getElementById('kontrolak');
     this.kontrolak.hidden= true;
     document.getElementById('p2').hidden = true;
-    //this.audioakHasi();
   }
 
   hasiHasiera(){
     this.audio1.play();
+    document.getElementById('errepikatuButton').hidden =true;
     document.getElementById('hasiBotoiaDiv').hidden =true;
+    document.getElementById('p1').hidden = false;
+    document.getElementById('p2').hidden = true;
     this.kontrolak.hidden= false;
+    document.getElementById('errepikatuButton').hidden =true;
+    document.getElementById('pauseStartButton').hidden =false;
+    document.getElementById('skipButton').hidden =false;
+
+    this.audio1.onended = a =>{
+      this.audio1etik2ra();
+    }
+    this.audio2.onended = a =>{
+      document.getElementById('errepikatuButton').hidden =false;
+      document.getElementById('pauseStartButton').hidden =true;
+      document.getElementById('skipButton').hidden =true;
+    }
   }
 
-  audioakHasi(){
+  audio1etik2ra(){
+      this.audio1.pause();
+      this.audio2.play();
+      document.getElementById('p1').hidden = true;
+      document.getElementById('p2').hidden = false;
+  }
+
+  pauseStart(){
     if(!this.audio1.paused){
       this.audio1.pause();
     }else{
       this.audio1.play();
     }
-
-    this.audio1.onended = function{
-      alert("sdfsdf");
-      this.audio2.play();
-      document.getElementById('p1').hidden = true;
-      document.getElementById('p2').hidden = false;
-    }
+    
   }
 
   skip(){
-    
+    if(!this.audio1.paused){
+      this.audio1etik2ra()
+    }else if(!this.audio2.paused){
+      this.audio2.pause();
+      document.getElementById('errepikatuButton').hidden =false;
+      document.getElementById('pauseStartButton').hidden =true;
+      document.getElementById('skipButton').hidden =true;
+    }
   }
 }

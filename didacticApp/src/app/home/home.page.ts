@@ -8,6 +8,10 @@ import 'leaflet-rotatedmarker';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import * as jsonData from '../../assets/koordenadak.json';
 import { fromEventPattern } from 'rxjs';
+import { AlertController } from '@ionic/angular';
+
+
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -21,13 +25,12 @@ export class HomePage implements OnInit {
   playerMarker: any;
   tracking: boolean = true;
 
-  constructor(private geo: Geolocation) {}
+  constructor(private geo: Geolocation, private alertController: AlertController) {}
 
   ngOnInit(): void {
     this.whereAmI();
     this.initMap();
     this.durangokoKokapenenMarkakJarri();
-    //this.aurkezpenaScript();
   }
 
   jokalariarenPosizioraJoan() {
@@ -55,18 +58,18 @@ export class HomePage implements OnInit {
               console.log('pantaila mugitu da. Tracking:', this.tracking);
         });
 
-        //console.log(
-        //  'Durangotik ' +
-        //    this.getPlayersDistanceFromDurangoInKM() +
-        //    'Km-ra zaude'
-        //);
+        console.log(
+          'Durangotik ' +
+            this.getPlayersDistanceFromDurangoInKM() +
+            'Km-ra zaude'
+        );
         if (
           this.getPlayersDistanceFromDurangoInKM() < 8 &&
           this.tracking == true
         ) {
           this.jokalariarenPosizioraJoan();
         } else if(this.getPlayersDistanceFromDurangoInKM() > 8) {
-          //alert("Durangotik kanpo zaude");
+          this.durangotikKanpoAlert();
           console.log('Durangotik kanpo zaude');
         }
 
@@ -172,12 +175,18 @@ export class HomePage implements OnInit {
     }).addTo(this.map);
   }
 
-  public aurkezpenaScript(){
-    const popupContainer = document.getElementById('popupContainer');
-    popupContainer.style.display="block";
+  async durangotikKanpoAlert() {
+    const alert = await this.alertController.create({
+      header: 'Arazoa',
+      subHeader: 'Durangotik kanpo',
+      message: 'Jokoan jolastu ahal izateko Durango barruan egon behar zara eta mugikorreko geolokalizazioa aktibatuta izan behar duzu.',
+      buttons: ['OK'],
+    });
 
-
-    //document.getElementById('mariAurkezepenAudio').play();
+    await alert.present();
+  }
+  hurrengoPausoa(){
+    
   }
 
 }

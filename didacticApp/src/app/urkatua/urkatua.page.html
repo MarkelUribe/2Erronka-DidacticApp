@@ -1,0 +1,22 @@
+<ion-content [fullscreen]="true" padding >
+  <ion-grid>
+   <ion-row>
+     <ion-col>
+       <img src="../../assets/img/urkatua/{{numFallos}}.png" alt="">
+     </ion-col>
+     <ion-col>
+       <ion-badge *ngFor="let fallo of fallos">{{fallo}}</ion-badge>
+     </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col>
+       <p id="palabra-a-adivinar-por-ahora">{{palabraAAdivinarPorAhora}}</p>
+     </ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col id="button">
+       <ion-button *ngFor="let hizkia of hizkiak" round small outline (click)="botonClicked(hizkia)">{{hizkia}}</ion-button>
+     </ion-col>
+   </ion-row>
+  </ion-grid>
+ </ion-content>

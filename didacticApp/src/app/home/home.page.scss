@@ -79,4 +79,25 @@
 
 .pertsonaiak{
   width: 35%;
+  &#slide {
+    transition: 1s;
+    left: 0;
+  }
+}
+
+#hurrengoPausoa{
+  position: absolute;
+  z-index: 100;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(122, 152, 160);
+  background-color: rgb(0, 204, 255);
+  color: white;
+  font-weight: bold;
+  &:active{
+    background-color: rgb(0, 121, 151);
+  }
 }

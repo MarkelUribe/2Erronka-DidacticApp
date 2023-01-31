@@ -15,6 +15,18 @@ const routes: Routes = [
     path: 'hasiera',
     loadChildren: () => import('./hasiera/hasiera.module').then( m => m.HasieraPageModule)
   },
+  {
+    path: 'urkatua',
+    loadChildren: () => import('./urkatua/urkatua.module').then( m => m.UrkatuaPageModule)
+  },
+  {
+    path: 'hizki-sopa',
+    loadChildren: () => import('./hizki-sopa/hizki-sopa.module').then( m => m.HizkiSopaPageModule)
+  },
+  {
+    path: 'puzzlea',
+    loadChildren: () => import('./puzzlea/puzzlea.module').then( m => m.PuzzleaPageModule)
+  },
 ];
 
 @NgModule({

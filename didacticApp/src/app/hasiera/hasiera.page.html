@@ -2,13 +2,16 @@
 
 <ion-content>
   <div class="container">
+
+    <h2>DIDACTICAPP DURANGO</h2>
     <img class='pertsonaia' id="p1" src='../../assets/img/1. IRUDIA.png'>
-    <img class='pertsonaia' id="p2" src='../../assets/img/2. IRUDIA.png'>
+    <img class='pertsonaia' id="p2" src='../../assets/img/3. IRUDIA.png'>
 
     <div id="kontrolak">
-      <button (click)="audioakHasi()">Audioa Hasi/Gelditu</button>
-      <button (click)="skip()">skip -></button>
-      <button href="/home">Home</button>  
+      <button id="errepikatuButton" (click)="hasiHasiera()">🔃Errepikatu</button>
+      <button id="pauseStartButton" (click)="pauseStart()">Audioa Hasi/Gelditu</button>
+      <button id="skipButton" (click)="skip()">skip -></button>
+      <a href="/home"><button>Home</button>  </a>
     </div>
     
     <div id="hasiBotoiaDiv">

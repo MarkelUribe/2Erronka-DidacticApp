@@ -4,8 +4,11 @@
     display: flex;
     flex-direction: column; 
     align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     .pertsonaia{
         width: 250px;
+        position: absolute;
+        top: 10%;
     }
    
 
@@ -17,7 +20,7 @@
     }
 
     #kontrolak{
-        margin-top: 250px;
+        margin-top: 50vh;
     }
 
     #hasiBotoiaDiv{
