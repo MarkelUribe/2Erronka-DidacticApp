@@ -14,7 +14,7 @@ export class PuzzleaPage implements OnInit {
   casilla2:number;
  
 
-  constructor() {
+  constructor(public  alertController: AlertController) {
    
   }
   ngOnInit(){
@@ -56,9 +56,7 @@ export class PuzzleaPage implements OnInit {
      
       var correcto=this.comprobarPuzzleFinalizado();
       if(correcto==true){
-        setTimeout(() => {
-          alert('Zorionak irabazi duzu');
-        }, 1000);
+       this.mostrarMensajeGanar();
       }
     }
   }
@@ -84,4 +82,17 @@ export class PuzzleaPage implements OnInit {
     return correcto;
 
   }
+  async mostrarMensajeGanar(){
+    const alert= await this.alertController.create(
+      {header:"Zorionak!! Irabazi duzu",
+     buttons:[{
+      text:"Jarraitu",
+      handler:()=>{
+       
+      } }]}
+    );
+     await alert.present();
+
+  }
+
 }
