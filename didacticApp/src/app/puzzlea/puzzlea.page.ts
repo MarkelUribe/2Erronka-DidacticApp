@@ -50,18 +50,17 @@ export class PuzzleaPage implements OnInit {
       this.argazkiak[this.casilla2]=aux;
 
       this.num_click=0;
-
-      this.pintarPuzzlea();
-       var correcto=this.comprobarPuzzleFinalizado();
-       if(correcto!=true){
-        alert('Zorinak irabazi duzu');
-       }
+ 
       this.desmarcar();
+      this.pintarPuzzlea();
+     
+      var correcto=this.comprobarPuzzleFinalizado();
+      if(correcto==true){
+        setTimeout(() => {
+          alert('Zorionak irabazi duzu');
+        }, 1000);
+      }
     }
-    
-    
-  
-    
   }
   desmarcar(){
     for(let i=0;i<this.argazkiak.length;i++){
@@ -71,15 +70,15 @@ export class PuzzleaPage implements OnInit {
   pintarPuzzlea(){
     for(let i=0;i<this.argazkiak.length;i++){
  
-      document.getElementById(i.toString()).setAttribute("src","../../assets/img/puzzlea/"+ this.argazkiak[i]+".png");
+      document.getElementById(i.toString()).setAttribute("src","../../assets/img/"+ this.argazkiak[i]+".png");
     }
     console.log(this.argazkiak);
   }
   comprobarPuzzleFinalizado(){
-    var correcto=false;
+    var correcto=true;
     for(let i=0;i<this.argazkiak.length;i++){
-      if(this.argazkiak[i]==i){
-        correcto=true;
+      if(this.argazkiak[i]!=i){
+        correcto=false;
       }
     }
     return correcto;
