@@ -26,6 +26,7 @@ export class HasieraPage implements OnInit {
     document.getElementById('errepikatuButton').hidden =true;
     document.getElementById('pauseStartButton').hidden =false;
     document.getElementById('skipButton').hidden =false;
+    document.getElementById('homeButton').hidden =true;
 
     this.audio1.onended = a =>{
       this.audio1etik2ra();
@@ -34,6 +35,7 @@ export class HasieraPage implements OnInit {
       document.getElementById('errepikatuButton').hidden =false;
       document.getElementById('pauseStartButton').hidden =true;
       document.getElementById('skipButton').hidden =true;
+      document.getElementById('homeButton').hidden =false;
     }
   }
 
@@ -61,6 +63,7 @@ export class HasieraPage implements OnInit {
       document.getElementById('errepikatuButton').hidden =false;
       document.getElementById('pauseStartButton').hidden =true;
       document.getElementById('skipButton').hidden =true;
+      document.getElementById('homeButton').hidden =false;
     }
   }
 }

@@ -10,8 +10,6 @@ import * as jsonData from '../../assets/koordenadak.json';
 import { fromEventPattern } from 'rxjs';
 import { AlertController } from '@ionic/angular';
 
-
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -21,11 +19,15 @@ export class HomePage implements OnInit {
   private map: any;
   zoom: number = 17.5;
   koordenadak: any = jsonData;
-  playerPosition: number[] = [0, 0, 0];
+  playerPosition: number[] = [0, 0, 0]; //lat, lon, Orientazioa
   playerMarker: any;
   tracking: boolean = true;
+  alertPresented: boolean = false;
 
-  constructor(private geo: Geolocation, private alertController: AlertController) {}
+  constructor(
+    private geo: Geolocation,
+    private alertController: AlertController
+  ) {}
 
   ngOnInit(): void {
     this.whereAmI();
@@ -52,23 +54,23 @@ export class HomePage implements OnInit {
         this.playerPosition[2] = data.coords.heading;
         this.playerIconUpdate();
 
-        console.log('Tracking: ', this.tracking);
-        this.map.on('dragstart', e => {
-              this.tracking = false;
-              console.log('pantaila mugitu da. Tracking:', this.tracking);
+        //console.log('Tracking: ', this.tracking);
+        this.map.on('dragstart', (e) => {
+          this.tracking = false;
+          //console.log('pantaila mugitu da. Tracking:', this.tracking);
         });
-
-        console.log(
-          'Durangotik ' +
-            this.getPlayersDistanceFromDurangoInKM() +
-            'Km-ra zaude'
-        );
+        this.punturaGerturatutakoan();
+        //console.log(
+        //  'Durangotik ' +
+        //    this.getPlayersDistanceFromDurangoInKM() +
+        //    'Km-ra zaude'
+        //);
         if (
           this.getPlayersDistanceFromDurangoInKM() < 8 &&
           this.tracking == true
         ) {
           this.jokalariarenPosizioraJoan();
-        } else if(this.getPlayersDistanceFromDurangoInKM() > 8) {
+        } else if (this.getPlayersDistanceFromDurangoInKM() > 8) {
           this.durangotikKanpoAlert();
           console.log('Durangotik kanpo zaude');
         }
@@ -87,12 +89,16 @@ export class HomePage implements OnInit {
     });
   }
 
-  getPlayersDistanceFromDurangoInKM(): number {
+  getDistanceOfTwoPoints(p1: any, p2: any) {
     return (
-      Math.sqrt(
-        Math.pow(this.playerPosition[0] - this.koordenadak.Durango.lat, 2) +
-          Math.pow(this.playerPosition[1] - this.koordenadak.Durango.lon, 2)
-      ) * 111.1
+      Math.sqrt(Math.pow(p1[0] - p2[0], 2) + Math.pow(p1[1] - p2[1], 2)) * 111.1
+    );
+  }
+
+  getPlayersDistanceFromDurangoInKM(): number {
+    return this.getDistanceOfTwoPoints(
+      [this.playerPosition[0], this.playerPosition[1]],
+      [this.koordenadak.Durango.lat, this.koordenadak.Durango.lon]
     );
   }
 
@@ -116,7 +122,6 @@ export class HomePage implements OnInit {
     if (this.playerPosition[2] != null) {
       this.playerMarker.setRotationAngle(this.playerPosition[2]);
     }
-
   }
 
   durangokoKokapenenMarkakJarri() {
@@ -176,17 +181,35 @@ export class HomePage implements OnInit {
   }
 
   async durangotikKanpoAlert() {
-    const alert = await this.alertController.create({
-      header: 'Arazoa',
-      subHeader: 'Durangotik kanpo',
-      message: 'Jokoan jolastu ahal izateko Durango barruan egon behar zara eta mugikorreko geolokalizazioa aktibatuta izan behar duzu.',
-      buttons: ['OK'],
+    if (!this.alertPresented) {
+      const alert = await this.alertController.create({
+        header: 'Arazoa',
+        subHeader: 'Durangotik kanpo',
+        message:
+          'Jokoan jolastu ahal izateko Durango barruan egon behar zara eta mugikorreko geolokalizazioa aktibatuta izan behar duzu.',
+        buttons: [
+          {
+            text: 'OK',
+            handler: () => {
+              this.alertPresented = false;
+            },
+          },
+        ],
+      });
+      this.alertPresented = true;
+      await alert.present();
+    }
+  }
+
+  hurrengoPausoa() {}
+
+  punturaGerturatutakoan() {
+    var data = this.koordenadak;
+    Object.keys(data).forEach((key) => {
+      if(this.getDistanceOfTwoPoints(this.playerPosition, [data[key].lat, data[key].lon]) < 0.010){
+        alert(data[key]+"-tik gertu zaude!");
+      }
     });
 
-    await alert.present();
   }
-  hurrengoPausoa(){
-    
-  }
-
 }
