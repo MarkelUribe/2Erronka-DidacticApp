@@ -1,0 +1,15 @@
+<ion-header>  
+  <ion-toolbar>  
+    <ion-title>{{title}}</ion-title>  
+    <ion-icon name='close-circle' (click)='dismiss()' style='float: right;'></ion-icon>  
+  </ion-toolbar>  
+</ion-header>  
+  
+<ion-content>  
+  <p>{{azalpena}}</p>
+  <audio controls autoplay>
+    <source src="{{audioa}}" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+  <a href="{{title}}"><ion-button>JOLASTU</ion-button></a>
+</ion-content>  

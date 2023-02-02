@@ -9,11 +9,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import { HttpClientModule} from '@angular/common/http';
+import { ModalPageModule } from './modal/modal.module';
 
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, ModalPageModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Geolocation,],
   bootstrap: [AppComponent],

@@ -12,6 +12,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'Landako Gunea',
+    redirectTo: 'hizki-sopa',
+    pathMatch: 'full'
+  },
+  {
     path: 'hasiera',
     loadChildren: () => import('./hasiera/hasiera.module').then( m => m.HasieraPageModule)
   },
@@ -27,6 +32,11 @@ const routes: Routes = [
     path: 'puzzlea',
     loadChildren: () => import('./puzzlea/puzzlea.module').then( m => m.PuzzleaPageModule)
   },
+  {
+    path: 'modal',
+    loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
+  },
+
 ];
 
 @NgModule({

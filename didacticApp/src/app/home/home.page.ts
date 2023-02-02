@@ -7,8 +7,10 @@ import { Inject, Input, OnInit } from '@angular/core';
 import 'leaflet-rotatedmarker';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import * as jsonData from '../../assets/koordenadak.json';
+import * as jsonData2 from '../../assets/historia.json';
 import { fromEventPattern } from 'rxjs';
-import { AlertController } from '@ionic/angular';
+import { ModalController, AlertController } from '@ionic/angular';
+import { ModalPage } from '../modal/modal.page';
 
 @Component({
   selector: 'app-home',
@@ -19,20 +21,24 @@ export class HomePage implements OnInit {
   private map: any;
   zoom: number = 17.5;
   koordenadak: any = jsonData;
+  historia: any = jsonData2;
+  historiaFase: number = 0;
   playerPosition: number[] = [0, 0, 0]; //lat, lon, Orientazioa
   playerMarker: any;
+  guneMarker:any;
   tracking: boolean = true;
   alertPresented: boolean = false;
+  modalPresented: boolean = false;
 
   constructor(
     private geo: Geolocation,
-    private alertController: AlertController
+    private alertController: AlertController,
+    public modalCtrl: ModalController
   ) {}
 
   ngOnInit(): void {
     this.whereAmI();
     this.initMap();
-    this.durangokoKokapenenMarkakJarri();
   }
 
   jokalariarenPosizioraJoan() {
@@ -53,13 +59,14 @@ export class HomePage implements OnInit {
         this.playerPosition[1] = data.coords.longitude;
         this.playerPosition[2] = data.coords.heading;
         this.playerIconUpdate();
+        this.durangokoKokapenenMarkakJarri();
 
         //console.log('Tracking: ', this.tracking);
         this.map.on('dragstart', (e) => {
           this.tracking = false;
           //console.log('pantaila mugitu da. Tracking:', this.tracking);
         });
-        this.punturaGerturatutakoan();
+        this.oraingoFasetikGertu();
         //console.log(
         //  'Durangotik ' +
         //    this.getPlayersDistanceFromDurangoInKM() +
@@ -125,28 +132,27 @@ export class HomePage implements OnInit {
   }
 
   durangokoKokapenenMarkakJarri() {
-    var data = this.koordenadak;
-    Object.keys(data).forEach((key) => {
-      if (data[key].izena == 'Durango') {
-        return false;
-      } else if (data[key].izena == null) {
-        return false;
-      }
+    var data = this.koordenadak[this.historia[this.historiaFase].izena];
+
+    if (this.guneMarker != null) {
+      this.map.removeLayer(this.guneMarker);
+    }
+
 
       let icon = L.icon({
-        iconUrl: '../../assets/img/' + data[key].img,
+        iconUrl: '../../assets/img/' + data.img,
         iconSize: [40, 40],
         //html: '<span style="border-radius:25px;" />',
       });
-      let marker = L.marker([data[key].lat, data[key].lon], {
+      this.guneMarker = L.marker([data.lat, data.lon], {
         icon: icon,
       }).addTo(this.map);
 
-      let popup = L.popup().setContent(data[key].izena);
+      let popup = L.popup().setContent(data.izena);
 
-      marker.bindPopup(popup);
+      this.guneMarker.bindPopup(popup);
       return false;
-    });
+    
 
     return false;
   }
@@ -203,13 +209,34 @@ export class HomePage implements OnInit {
 
   hurrengoPausoa() {}
 
-  punturaGerturatutakoan() {
-    var data = this.koordenadak;
-    Object.keys(data).forEach((key) => {
-      if(this.getDistanceOfTwoPoints(this.playerPosition, [data[key].lat, data[key].lon]) < 0.010){
-        alert(data[key]+"-tik gertu zaude!");
-      }
-    });
+  async oraingoFasetikGertu() {
+    if (!this.modalPresented) {
+      var gunea = this.koordenadak[this.historia[this.historiaFase].izena];
 
+      if (
+        this.getDistanceOfTwoPoints(this.playerPosition, [
+          gunea.lat,
+          gunea.lon,
+        ]) < 0.01
+      ) {
+        this.modalPresented = true;
+        const modal = await this.modalCtrl.create({
+          component: ModalPage,
+          componentProps:{
+            'title': this.historia[this.historiaFase].izena,
+            'azalpena': this.historia[this.historiaFase].azalpena,
+            'audioa': this.historia[this.historiaFase].audioa
+          },
+          breakpoints: [0, 0.3, 0.5, 0.8],
+          initialBreakpoint: 0.5
+        });
+
+        modal.onDidDismiss().then( data => {
+          this.modalPresented = false;
+        });
+
+        return await modal.present();
+      }
+    }
   }
 }
