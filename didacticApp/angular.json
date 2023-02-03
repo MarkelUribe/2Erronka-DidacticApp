@@ -42,7 +42,8 @@
             "src/global.scss", 
             "node_modules/leaflet/dist/leaflet.css",
             "node_modules/leaflet-routing-machine/dist/leaflet-routing-machine.css"],
-            "scripts": []
+            "scripts": ["node_modules/jquery/dist/jquery.min.js", 
+            "src/assets/js/wordfind.js","src/assets/js/wordfindgame.js"]
           },
           "configurations": {
             "production": {
@@ -122,7 +123,8 @@
               }
             ],
             "styles": ["src/theme/variables.scss", "src/global.scss"],
-            "scripts": []
+            "scripts": ["node_modules/jquery/dist/jquery.min.js", 
+            "src/assets/js/wordfind.js","src/assets/js/wordfindgame.js"]
           },
           "configurations": {
             "ci": {

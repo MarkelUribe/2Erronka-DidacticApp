@@ -1,82 +1,39 @@
 
-<script
-      type="text/javascript"
-      src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
-    ></script>
-    <script type="text/javascript" src="../../assets/js/wordfind.js"></script>
-    <script type="text/javascript" src="../../assets/js/wordfindgame.js"></script>
-    <script>
-      $(document).ready(function () {
-        alert("asdas");
-        /*  words  */
-        [
-          "izotza",
-          "koltxonetak",
-          "aukera",
-          "azoka",
-          "kontzertuak",
-          "herribazkaria",
-          "liburua",
-          "diskoa",
-        ].map((word) =>
-          WordFindGame.insertWordBefore($("#add-word").parent(), word)
-        );
+ 
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Hizki Sopa
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
-        /* Init */
-        function recreate() {
-          $("#result-message").removeClass();
-          var fillBlanks, game;
-          if ($("#extra-letters").val() === "none") {
-            fillBlanks = false;
-          } else {
-            fillBlanks = $("#secret-word").val();
-          }
-          try {
-            game = new WordFindGame("#puzzle");
-          } catch (error) {
-            $("#result-message")
-              .text(`😞 ${error}, try to specify less ones`)
-              .css({ color: "red" });
-            return;
-          }
-          wordfind.print(game);
-          if (window.game) {
-            var emptySquaresCount = WordFindGame.emptySquaresCount();
-            $("#result-message")
-              .text(
-                `😃 ${emptySquaresCount ? "but there are empty squares" : ""}`
-              )
-              .css({ color: "" });
-          }
-          window.game = game;
-        }
 
-        recreate();
 
-        $("#create-grid").click(recreate);
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Hizki-sopa</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-        $("#solve").click(() => game.solve());
-      });
-    </script>
-<ion-app>
-  <!--<ion-router-outlet></ion-router-outlet>-->
-  <h1 class="hizki">Hizki Sopa</h1>
-  <div id="main" role="main" >
-    <div id="puzzle"></div>
-    <ul id="words">
-      <li id="add-word"></li>
-    </ul>
-    <fieldset id="controls">
-      <p id="result-message"></p>
-      <button id="solve">Solve Puzzle</button>
-    </fieldset>
-  </div>
-  <div class="modal" id="congratsModal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Congratulations!</h2>
-      <p>You have finished the game!</p>
-      <button type="button" class="btn btn-primary">Continue</button>
+  
+    <div id="main" role="main">
+      <div id="puzzle"></div>
+      <ul id="words">
+        <li><button id="add-word"></button></li>
+      </ul>
+      <fieldset id="controls">
+        <p id="result-message"></p>
+        <button id="solve">Solve Puzzle</button>
+      </fieldset>
     </div>
-  </div>
-</ion-app>
+    <div class="modal" id="congratsModal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Congratulations!</h2>
+        <p>You have finished the game!</p>
+        <button type="button" (click)="hurrengoJokoa()" class="btn btn-primary">Continue</button>
+      </div>
+    </div>
+</ion-content>

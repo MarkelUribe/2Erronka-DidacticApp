@@ -1,37 +1,45 @@
 [
     {
         "izena": "Landako Gunea",
-        "audioa": "../../assets/audio/LANDAKO GUNEA.m4a",
-        "azalpena": "Landako Gunean hainbat jolas-jarduera eta ikuskizun publikoak egiten dira. Besteakbeste, izotz-pista Gabonetan, koltxonetak jaietan, liburu eta disko azoka… Landakok urtero hartzen ditu azokak, kultura-, musika- eta gastronomia-jaialdiak, erakusketak, kontzertuak, kirol-ekitaldiak eta abar. Gunea oso zabala da, plazaren erdian tximinia handi bat dago eta instalazio modernoak ditu. Urtean 50.000 pertsona baino gehiago bisitatzen dute. "
+        "audioa": "LANDAKO_GUNEA.mp4",
+        "azalpena": ["Landako Gunean hainbat jolas-jarduera eta ikuskizun publikoak egiten dira. Besteakbeste, izotz-pista Gabonetan, koltxonetak jaietan, liburu eta disko azoka…",
+        "Landakok urtero hartzen ditu azokak, kultura-, musika- eta gastronomia-jaialdiak, erakusketak, kontzertuak, kirol-ekitaldiak eta abar. Gunea oso zabala da, plazaren erdian tximinia handi bat dago eta instalazio modernoak ditu. Urtean 50.000 pertsona baino gehiago bisitatzen dute."]
     },
     {
         "izena": "Liburu eta Disko Azoka",
-        "audioa": "../../assets/audio/AZOKA.m4a",
-        "azalpena": "Durangoko lehen euskal liburu eta disko azoka 1965ean izan zen. Horren helburua euskarako edo euskal gaiei buruzko argitalpenei ikusgarritasuna ematea zen. Baina, orain beste helburu bat lortu nahi du: gazteei zuzendutako Ikasle eta Irakasle Eguna antolatzea, kulturaren eta euskararen transmisioa indartzeko. Azoka egunetan ere, folklore eta musika-ekitaldiak egiten dira, Durangoko inprimategietan argitaratutako liburu zaharren erakusketarekin batera. Era berean, sarearen alderdi anitzak zabaltzeko lan egiten da, edo ikus-entzunezko baliabideen bidez, hala nola Azoka Telebistaren proiektua."
+        "audioa": "AZOKA.mp4",
+        "azalpena": ["Durangoko lehen euskal liburu eta disko azoka 1965ean izan zen. Horren helburua euskarako edo euskal gaiei buruzko argitalpenei ikusgarritasuna ematea zen. Baina, orain beste helburu bat lortu nahi du: gazteei zuzendutako Ikasle eta Irakasle Eguna antolatzea, kulturaren eta euskararen transmisioa indartzeko.",
+        "Azoka egunetan ere, folklore eta musika-ekitaldiak egiten dira, Durangoko inprimategietan argitaratutako liburu zaharren erakusketarekin batera. Era berean, sarearen alderdi anitzak zabaltzeko lan egiten da, edo ikus-entzunezko baliabideen bidez, hala nola Azoka Telebistaren proiektua."]
     },
     {
         "izena": "Durangoko bonbardaketa",
-        "audioa": "../../assets/audio/PORTIKOA.m4a",
-        "azalpena": "Durangoko bonbardaketa 1937ko martxoaren 31an gertatu zen, Espainiako Gerra Zibilaren bitartean. Bertan bi alderdi zeuden: batetik, frankistak; diktaduraren aldekoak, bestetik, errepublikarrak; demokraziaren aldekoak. Euskal Herria bigarren alderdian zegoen, beraz, beste alderdiko hegazkinek 80 bonba jaurti zituzten, 248-336 arteko pertsona hilduz. Hegazkinak Kurutziaga aldetik hasi zuten erasoa goizeko 8:30-etan, jendea mezan ala lanetan harrapatuz. Zehazki, hainbat eraikin kaltetu ala suntsitu egin zituzten; besteak beste, Kurutziaga kaleko etxeak, Jesuiten San Jose eliza, Andra Mari eliza eta Santa Susana komentua.Horrela, biztanleriaren gaineko historiako lehen bonbardaketa bihurtu zen. Gaur egun eraso horren aztarnak ikus daitezke liburutegi zaharreko hormetan."
+        "audioa": "PORTIKOA.mp4",
+        "azalpena": ["Durangoko bonbardaketa 1937ko martxoaren 31an gertatu zen, Espainiako Gerra Zibilaren bitartean. Bertan bi alderdi zeuden: batetik, frankistak; diktaduraren aldekoak, bestetik, errepublikarrak; demokraziaren aldekoak. Euskal Herria bigarren alderdian zegoen, beraz, beste alderdiko hegazkinek 80 bonba jaurti zituzten, 248-336 arteko pertsona hilez.", "Hegazkinak Kurutziaga aldetik hasi zuten erasoa goizeko 8:30-etan, jendea mezan ala lanetan harrapatuz. Zehazki, hainbat eraikin kaltetu ala suntsitu egin zituzten; besteak beste, Kurutziaga kaleko etxeak, Jesuiten San Jose eliza, Andra Mari eliza eta Santa Susana komentua.Horrela, biztanleriaren gaineko historiako lehen bonbardaketa bihurtu zen. Gaur egun eraso horren aztarnak ikus daitezke liburutegi zaharreko hormetan."]
     },
     {
         "izena": "San Agustin Kultur Gunea",
-        "audioa": "../../assets/audio/KULTUR GUNEA.m4a",
-        "azalpena": "San Agustineko Kultur Gunea Durangoko antzoki publikoa da eta 1998an sortu zen. Bertan, askotariko eta kalitatezko jarduerak egiten dira, hala nola antzerki, musika eta dantza-ikuskizunak. Gainera, interes kulturalari eusteko modu ona da. Udan ere zabalik dago eta kaleko arteen programa txiki bat eskaintzen du."
+        "audioa": "KULTUR_GUNEA.mp4",
+        "azalpena": ["San Agustineko Kultur Gunea Durangoko antzoki publikoa da eta 1998an sortu zen.",
+        " Bertan, askotariko eta kalitatezko jarduerak egiten dira, hala nola antzerki, musika eta dantza-ikuskizunak. Gainera, interes kulturalari eusteko modu ona da. Udan ere zabalik dago eta kaleko arteen programa txiki bat eskaintzen du."]
     },
     {
         "izena": "San Faustoko Jaiak",
-        "audioa": "../../assets/audio/UDALETXEA.m4a",
-        "azalpena": "Durangoko San Fausto eta Zaindari Santuaren jaiak urriaren 13aren inguruan ospatzen dira. Jai hauetan hainbat ekitaldi eta jarduera berezi egiten dira, baina, tradizionalenak eta ospetsuenak 'zezenak dira' eta 'artopillek' dira. “Zezenak dira” ekitaldia Santa Ana plazan ospatzen da. Zezenak ateratzen dira kalera eta jendea haien aurrean korrika egiten dute, Iruñeako San Ferminetan bezala. “Artopillek” ekitaldian, gozokiak prestatzen dituzte, madalena forma eta arto ale bat barruan dutenak. Nahiz eta oso goxo egon, janari hau San Fausto egunean bakarrik egiten da. San Faustoko festetan beste hainbat jarduera egiten dira. Adibidez: bertsolarien, trikitilarien, dantzarien eta txistularien emanaldiak; txikienentzako jarduerak; lehiaketak; bazkari herrikoiak; erromeriak edo kirol-jarduerak. Hala ere, Durangoko festetako protagonistak Patxikotxu eta Patxinke dira, euskal arropa tradizionalekin jantzitako Santa Anako Arkura eramaten dute eta Patxinkeren kasuan txosnetatik ibiltzen da."
+        "audioa": "UDALETXEA.mp4",
+        "azalpena": ["Durangoko San Fausto eta Zaindari Santuaren jaiak urriaren 13aren inguruan ospatzen dira. Jai hauetan hainbat ekitaldi eta jarduera berezi egiten dira, baina, tradizionalenak eta ospetsuenak 'zezenak dira' eta 'artopillek' dira. “Zezenak dira” ekitaldia Santa Ana plazan ospatzen da. Zezenak ateratzen dira kalera eta jendea haien aurrean korrika egiten dute, Iruñeako San Ferminetan bezala. “Artopillek” ekitaldian, gozokiak prestatzen dituzte, madalena forma eta arto ale bat barruan dutenak. Nahiz eta oso goxo egon, janari hau San Fausto egunean bakarrik egiten da.",
+        "San Faustoko festetan beste hainbat jarduera egiten dira. Adibidez: bertsolarien, trikitilarien, dantzarien eta txistularien emanaldiak; txikienentzako jarduerak; lehiaketak; bazkari herrikoiak; erromeriak edo kirol-jarduerak.",
+        "Hala ere, Durangoko festetako protagonistak Patxikotxu eta Patxinke dira, euskal arropa tradizionalekin jantzitako Santa Anako Arkura eramaten dute eta Patxinkeren kasuan txosnetatik ibiltzen da."]
     },
     {
         "izena": "Santa Anako Arkua",
-        "audioa": "../../assets/audio/SANTA ANAKO ARKUA.m4a",
-        "azalpena": "Santa Anako Arkua 1566an eraiki zen, Errenazimendu garaian. Enparantzan kokatzen da, eliza baten ondoan. Antzinean Durango inguratzen zuen, baina, 1743an udalak ate barroko bat jarri zuen garaiarekin bat etortzeko. Gaur egun, herrian geratzen den ate bakarra da. Arkuak bi solairu ditu. Lehenengoan arku handi bat dago eta bigarrenean, aldiz, armarri bat ikus dezakegu. Gainera, terraza txiki baten gainean kokatzen da, eta honen alboetan bi logela zilindriko daude, kupula bat estaltzen dituena."
+        "audioa": "SANTA ANAKO ARKUA.mp4",
+        "azalpena": ["Santa Anako Arkua 1566an eraiki zen, Errenazimendu garaian. Enparantzan kokatzen da, eliza baten ondoan. Antzinean Durango inguratzen zuen, baina, 1743an udalak ate barroko bat jarri zuen garaiarekin bat etortzeko. Gaur egun, herrian geratzen den ate bakarra da.",
+        "Arkuak bi solairu ditu. Lehenengoan arku handi bat dago eta bigarrenean, aldiz, armarri bat ikus dezakegu. Gainera, terraza txiki baten gainean kokatzen da, eta honen alboetan bi logela zilindriko daude, kupula bat estaltzen dituena."]
     },
     {
         "izena": "Anbotoko Mariren Kondaira",
-        "audioa": "../../assets/audio/ANBOTO.m4a",
-        "azalpena": ""
+        "audioa": "ANBOTO.mp4",
+        "azalpena": ["Anboto mendia Durangaldean dago eta hainbat kobazulo eta harpe ditu bertan. Mari, gure protagonista, bertan bizi da. Hori dela eta, Anbotoko Dama izena hartu du. Hala ere, hainbat mendietan bizi izan dela esaten da: Anboton, Txindokin, Aralarren, Aizkorrin, Mondarrainen eta Murumendin. Mendi bakoitzean 7 urte egoten da eta gero beste batera alde egiten du.","Mari fenomeno naturaletan (ekaitza, haizea, euria) eta animalia desberdinetan irudikatzeko aukera du. Hala ere, beti emakume giza irudikatu izan da. Justiziaren jainkosa da, zintzotasunaren defendatzailea eta injustiziarekin oso zorrotza; gezurra esatea, lapurtzea, hitza ez betetzea, besteek ez errespetatzea edo mespretxatzea adibidez zigortzen du. Aldiz, besteei laguntzen dituzten pertsonak saritzen ditu.",
+        "Mari suge batekin ezkondu zen; Majurekin. Berarekin bi seme izan zituen Atarrabi, ona dena, eta Mikelats gaiztoa dena.",
+        "Ez da hain erraza bere etxean sartzean, izan ere, bertan egoteko arau batzuk jarraitu behar dira: • Kobazulotik sartu garen modu berean irten behar dugu • Ez gara bertan gauden bitartean eseriko • Ez dugu han aurkitu dugun ezer eramango."]
     }
 ]

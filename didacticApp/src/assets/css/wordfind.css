@@ -1,0 +1,254 @@
+h1 {
+    text-align: center; /* to center #puzzle on small devices */
+  }
+  
+  #main {
+    margin: 0 auto;
+    max-width: 80rem;
+    text-align: center; /* to center #puzzle on small devices */
+  }
+  @media only screen and (min-width: 600px) {
+    #main {
+      text-align: left;
+    }
+  }
+  
+  /**
+  * Styles for the puzzle
+  */
+  #puzzle {
+    display: inline-block;
+    border: 1px solid rgb(212, 50, 50);
+    padding: 3vw;
+  }
+  
+  @media only screen and (max-width: 400px) {
+    #puzzle {
+      width: 100%;
+    }
+  }
+  
+  #puzzle > div { /* rows */
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  /* style for each square in the puzzle */
+  .puzzleSquare {
+    height: 7vw;
+    width: 7vw;
+    text-transform: uppercase;
+    background-color: white;
+    border: 0;
+    font: 5vw sans-serif;
+  }
+  @media only screen and (min-width: 600px) {
+    #puzzle {
+      float: left;
+      padding: 1rem;
+    }
+    .puzzleSquare {
+      height: 3.5rem;
+      width: 3.5rem;
+      font: 2.5rem sans-serif;
+    }
+  }
+  
+  button::-moz-focus-inner {
+    border: 0;
+  }
+  
+  /* indicates when a square has been selected */
+  #puzzle .selected {
+    background-color: orange;
+  }
+  
+  /* indicates that the square is part of a word that has been found */ 
+  #puzzle .found {
+    background-color: blue;
+    color: white;
+  }
+  
+  #puzzle .solved {
+    background-color: rgb(64, 235, 101);
+    color: white;
+    
+  }
+  
+  #puzzle .more_iluna {
+    background-color: #8A2BE2;
+    color: white;
+  }
+  
+  #puzzle .more_argia {
+    background-color: #BA55D3;
+    color: white;
+  }
+  
+  #puzzle .urdin_argia {
+    background-color: #00FFFF;
+    color: white;
+  }
+  
+  #puzzle .urdin_iluna {
+    background-color: #4169E1;
+    color: white;
+  }
+  
+  #puzzle .gorria {
+    background-color: #DC143C;
+    color: white;
+  }
+  
+  #puzzle .berdea {
+    background-color: #32CD32;
+    color: white;
+  }
+  
+  #puzzle .laranja {
+    background-color: #ff6b36;
+    color: white;
+  }
+  
+  #puzzle .horia {
+    background-color: #e2df13;
+    color: white;
+  }
+  
+  
+  
+  
+  /* indicates that all words have been found */
+  #puzzle .complete {
+    background-color: green;
+  }
+  
+  /**
+  * Styles for the word list
+  */
+  #words {
+    display: inline-block;
+    max-width: 30rem;
+    padding: 1em;
+    list-style-type: none;
+    text-align: left;
+    
+  }
+  @media only screen and (min-width: 600px) {
+    #words {
+      -moz-column-count: 2;
+      -webkit-column-count: 2;
+      column-count: 2;
+      column-gap: 20px;
+    }
+  }
+  
+  #words li {
+    padding: 3px 0;
+    font: 1em sans-serif;
+  }
+  
+  /* indicates that the word has been found */
+  .wordFound {
+    text-decoration: line-through;
+    color: gray;
+  }
+  
+  /**
+  * Styles for the controls
+  */
+  #controls {
+    display: inline-block;
+    max-width: 30rem;
+    padding: 1em;
+    border: none;
+    text-align: left;
+  }
+  label {
+    white-space: nowrap;
+    margin-top: 1em;
+  }
+  input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 1em;
+  }
+  input[type="number"] {
+    width: 2rem;
+  }
+  select {
+    max-width: 10rem;
+  }
+  #create-grid, #solve {
+    display: block;
+    margin-top: 1rem;
+  }
+  #secret-word {
+    text-transform: uppercase;
+  }
+  
+  #result-message {
+    font-size: 1.2em;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  @media only screen and (min-width: 200px) {
+    .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    text-align: center;
+    width: 80%;
+    }
+  }
+  
+  @media only screen and (min-width: 600px) {
+    .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    text-align: center;
+    width: 40%;
+    }
+  }
+  
+  .close:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .word-list {
+    float: left;
+    width: 50%;
+  }
+  
+  #solve{
+    margin-top: -50px;
+    width: 100px;
+    height: 50px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    transition: all 0.2s ease-in-out;
+  
+  }
+  
+  #solve:hover {
+    background-color: rgb(117, 211, 159);
+    color: #000;
+  }

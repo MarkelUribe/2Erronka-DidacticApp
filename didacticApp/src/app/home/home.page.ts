@@ -25,7 +25,7 @@ export class HomePage implements OnInit {
   historiaFase: number = 0;
   playerPosition: number[] = [0, 0, 0]; //lat, lon, Orientazioa
   playerMarker: any;
-  guneMarker:any;
+  guneMarker: any;
   tracking: boolean = true;
   alertPresented: boolean = false;
   modalPresented: boolean = false;
@@ -138,21 +138,19 @@ export class HomePage implements OnInit {
       this.map.removeLayer(this.guneMarker);
     }
 
+    let icon = L.icon({
+      iconUrl: '../../assets/img/' + data.img,
+      iconSize: [40, 40],
+      //html: '<span style="border-radius:25px;" />',
+    });
+    this.guneMarker = L.marker([data.lat, data.lon], {
+      icon: icon,
+    }).addTo(this.map);
 
-      let icon = L.icon({
-        iconUrl: '../../assets/img/' + data.img,
-        iconSize: [40, 40],
-        //html: '<span style="border-radius:25px;" />',
-      });
-      this.guneMarker = L.marker([data.lat, data.lon], {
-        icon: icon,
-      }).addTo(this.map);
+    let popup = L.popup().setContent(data.izena);
 
-      let popup = L.popup().setContent(data.izena);
-
-      this.guneMarker.bindPopup(popup);
-      return false;
-    
+    this.guneMarker.bindPopup(popup);
+    return false;
 
     return false;
   }
@@ -222,16 +220,16 @@ export class HomePage implements OnInit {
         this.modalPresented = true;
         const modal = await this.modalCtrl.create({
           component: ModalPage,
-          componentProps:{
-            'title': this.historia[this.historiaFase].izena,
-            'azalpena': this.historia[this.historiaFase].azalpena,
-            'audioa': this.historia[this.historiaFase].audioa
+          componentProps: {
+            title: this.historia[this.historiaFase].izena,
+            azalpena: this.historia[this.historiaFase].azalpena,
+            audioa: this.historia[this.historiaFase].audioa,
           },
           breakpoints: [0, 0.3, 0.5, 0.8],
-          initialBreakpoint: 0.5
+          initialBreakpoint: 0.5,
         });
 
-        modal.onDidDismiss().then( data => {
+        modal.onDidDismiss().then((data) => {
           this.modalPresented = false;
         });
 

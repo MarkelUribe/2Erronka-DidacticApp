@@ -6,10 +6,11 @@
 </ion-header>  
   
 <ion-content>  
-  <p>{{azalpena}}</p>
+
+  <p *ngFor="let azalpen of azalpena">{{azalpen}}</p>
   <audio controls autoplay>
-    <source src="{{audioa}}" type="audio/mpeg">
+    <source src="../../assets/audio/{{audioa}}" type="audio/mpeg">
   Your browser does not support the audio element.
   </audio>
   <a href="{{title}}"><ion-button>JOLASTU</ion-button></a>
-</ion-content>  
+</ion-content>
