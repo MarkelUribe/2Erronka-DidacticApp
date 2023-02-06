@@ -1,9 +1,13 @@
+h3{
+    text-align: center;
+}
 #col{
     display: grid;
     grid-template-columns: repeat(3,auto);
     justify-content: center;
 }
 #puzzleKkutxa{
+    margin-top: 20vh;
     width: 100%;
     img{
         width: 33%;

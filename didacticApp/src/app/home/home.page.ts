@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { readFileSync, writeFileSync } from 'fs';
+
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';
 import { icon, Marker } from 'leaflet';
@@ -37,6 +39,8 @@ export class HomePage implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    //const file = readFileSync('../../assets/historiaFase.txt', 'utf-8');
+    //this.historiaFase = +file;
     this.whereAmI();
     this.initMap();
   }
@@ -60,6 +64,7 @@ export class HomePage implements OnInit {
         this.playerPosition[2] = data.coords.heading;
         this.playerIconUpdate();
         this.durangokoKokapenenMarkakJarri();
+        this.hurrengoPausoaUpdate();
 
         //console.log('Tracking: ', this.tracking);
         this.map.on('dragstart', (e) => {
@@ -150,7 +155,10 @@ export class HomePage implements OnInit {
     let popup = L.popup().setContent(data.izena);
 
     this.guneMarker.bindPopup(popup);
-    return false;
+
+    this.guneMarker.on('click', (e) => {
+      this.oraingoFasetikGertu();
+    });
 
     return false;
   }
@@ -205,9 +213,7 @@ export class HomePage implements OnInit {
     }
   }
 
-  hurrengoPausoa() {}
-
-  async oraingoFasetikGertu() {
+  oraingoFasetikGertu() {
     if (!this.modalPresented) {
       var gunea = this.koordenadak[this.historia[this.historiaFase].izena];
 
@@ -217,24 +223,35 @@ export class HomePage implements OnInit {
           gunea.lon,
         ]) < 0.01
       ) {
-        this.modalPresented = true;
-        const modal = await this.modalCtrl.create({
-          component: ModalPage,
-          componentProps: {
-            title: this.historia[this.historiaFase].izena,
-            azalpena: this.historia[this.historiaFase].azalpena,
-            audioa: this.historia[this.historiaFase].audioa,
-          },
-          breakpoints: [0, 0.3, 0.5, 0.8],
-          initialBreakpoint: 0.5,
-        });
-
-        modal.onDidDismiss().then((data) => {
-          this.modalPresented = false;
-        });
-
-        return await modal.present();
+        this.jokoraJoatekoModalaErakutsi();
       }
     }
   }
+
+  async jokoraJoatekoModalaErakutsi() {
+    this.modalPresented = true;
+    const modal = await this.modalCtrl.create({
+      component: ModalPage,
+      componentProps: {
+        title: this.historia[this.historiaFase].izena,
+        azalpena: this.historia[this.historiaFase].azalpena,
+        audioa: this.historia[this.historiaFase].audioa,
+      },
+      breakpoints: [0, 0.3, 0.5, 0.8],
+      initialBreakpoint: 0.5,
+    });
+
+    modal.onDidDismiss().then((data) => {
+      this.modalPresented = false;
+    });
+
+    return await modal.present();
+  }
+
+  hurrengoPausoaUpdate(){
+    document.getElementById('hurrengoPausoaTxt').innerHTML = this.historia[this.historiaFase].izena;
+  }
+
+
+
 }

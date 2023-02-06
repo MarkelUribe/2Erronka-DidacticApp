@@ -17,6 +17,36 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'Liburu eta Disko Azoka',
+    redirectTo: 'laberintoa',
+    pathMatch: 'full'
+  },
+  {
+    path: 'Durangoko bonbardaketa',
+    redirectTo: 'puzzlea',
+    pathMatch: 'full'
+  },
+  {
+    path: 'San Agustin Kultur Gunea',
+    redirectTo: 'asmakizuna',
+    pathMatch: 'full'
+  },
+  {
+    path: 'San Faustoko Jaiak',
+    redirectTo: 'urkatua',
+    pathMatch: 'full'
+  },
+  {
+    path: 'Santa Anako Arkua',
+    redirectTo: 'hitz-ezkutua',
+    pathMatch: 'full'
+  },
+  {
+    path: 'Anbotoko Mariren Kondaira',
+    redirectTo: 'anboto',
+    pathMatch: 'full'
+  },
+  {
     path: 'hasiera',
     loadChildren: () => import('./hasiera/hasiera.module').then( m => m.HasieraPageModule)
   },
@@ -36,6 +66,11 @@ const routes: Routes = [
     path: 'modal',
     loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
   },
+  {
+    path: 'hitz-ezkutua',
+    loadChildren: () => import('./hitz-ezkutua/hitz-ezkutua.module').then( m => m.HitzEzkutuaPageModule)
+  },
+
 
 ];
 

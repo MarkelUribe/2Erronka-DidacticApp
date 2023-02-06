@@ -90,15 +90,13 @@
   z-index: 100;
   right: 0;
   bottom: 0;
-  padding: 10px;
   margin: 5px;
+  padding: 5px;
+  width: 30vh;
   border-radius: 5px;
   border: 1px solid rgb(122, 152, 160);
-  background-color: rgb(0, 204, 255);
-  color: white;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   font-weight: bold;
-  &:active{
-    background-color: rgb(0, 121, 151);
-  }
 }
 

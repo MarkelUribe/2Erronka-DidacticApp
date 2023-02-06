@@ -68,7 +68,7 @@ export class PuzzleaPage implements OnInit {
   pintarPuzzlea(){
     for(let i=0;i<this.argazkiak.length;i++){
  
-      document.getElementById(i.toString()).setAttribute("src","../../assets/img/"+ this.argazkiak[i]+".png");
+      document.getElementById(i.toString()).setAttribute("src","../../assets/img/puzzlea/"+ this.argazkiak[i]+".png");
     }
     console.log(this.argazkiak);
   }
@@ -88,7 +88,7 @@ export class PuzzleaPage implements OnInit {
      buttons:[{
       text:"Jarraitu",
       handler:()=>{
-       
+        
       } }]}
     );
      await alert.present();
