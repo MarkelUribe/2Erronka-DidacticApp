@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-hasiera',
   templateUrl: './hasiera.page.html',
@@ -8,12 +10,17 @@ export class HasieraPage implements OnInit {
   audio1 = new Audio("../../assets/audio/MARIREN AURKEZPENA.m4a");
   audio2 = new Audio("../../assets/audio/M_A SELFIE.m4a");
   kontrolak: any;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.kontrolak = document.getElementById('kontrolak');
     this.kontrolak.hidden= true;
     document.getElementById('p2').hidden = true;
+  }
+
+  home(){
+    localStorage.setItem('fase', '0');
+    this.router.navigate(['/home']);
   }
 
   hasiHasiera(){

@@ -27,7 +27,8 @@ export class HitzEzkutuaPage {
     if (imageArray.length == 25 && imageString == 'anbotoko mariren kondaira') {
       this.hitzEzkutua = imageString;
       this.clickedImageId = 'Zorionak!!! Hitz ezkutua aurkitu duzu!!!';
-      this.router.navigate(['/home'])
+      localStorage.setItem('fase', '6');
+      this.router.navigate(['/home']);
       imageArray = [];
     } else if (
       imageArray.length == 25 &&

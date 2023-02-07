@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-urkatua',
@@ -20,7 +21,7 @@ export class UrkatuaPage {
   aciertos:Array<String>;
   numFallos:number;
   numAciertos:number;
-  constructor( public navCtrl: NavController, public  alertController: AlertController) {
+  constructor( public navCtrl: NavController, public  alertController: AlertController, private router: Router) {
     this.inicializar();
   }
   inicializar():void{
@@ -102,12 +103,13 @@ export class UrkatuaPage {
     const alert= await this.alertController.create(
       {header:"Zorionak!! Irabazi duzu",
      buttons:[{
-      text:"Berriro Jokatu",
+      text:"Mapara Itzuli!",
       handler:()=>{
-        this.inicializar();
+        localStorage.setItem('fase', '5');
+        this.router.navigate(['/home']);
       } }]}
     );
      await alert.present();
-
   }
+
 }

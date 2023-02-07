@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+
+
+  <ion-content [fullscreen]="true">
+    <div>
+      <h1>Entzun asmakizuna</h1>
+      <audio controls><source src="../../assets/audio/UDALETXEA.mp4">
+      </audio>
+    </div>
+  <div>
+    <mat-form-field >
+      <mat-label>Zein da alkateak lan egiten duen eraikina?</mat-label>
+      <input [(ngModel)]='inputa' matInput>
+    </mat-form-field>
+  <ion-row>
+    <ion-button (click)="balidatu()">Konprobatu</ion-button>
+  </ion-row>
+  
+  </div>
+  
+  
+   
+   
+  </ion-content>
+  

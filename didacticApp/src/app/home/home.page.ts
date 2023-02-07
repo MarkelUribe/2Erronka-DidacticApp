@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { readFileSync, writeFileSync } from 'fs';
+import { Router } from '@angular/router';
 
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';
@@ -25,6 +25,7 @@ export class HomePage implements OnInit {
   koordenadak: any = jsonData;
   historia: any = jsonData2;
   historiaFase: number = 0;
+  hurrengoGuneImg: string;
   playerPosition: number[] = [0, 0, 0]; //lat, lon, Orientazioa
   playerMarker: any;
   guneMarker: any;
@@ -35,12 +36,18 @@ export class HomePage implements OnInit {
   constructor(
     private geo: Geolocation,
     private alertController: AlertController,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    //const file = readFileSync('../../assets/historiaFase.txt', 'utf-8');
-    //this.historiaFase = +file;
+    if(localStorage.getItem('fase') == null){
+      localStorage.setItem('fase', this.historiaFase.toString());
+      this.router.navigate(['/hasiera']);
+    }else{
+      this.historiaFase = +localStorage.getItem('fase');
+    }
+
     this.whereAmI();
     this.initMap();
   }
@@ -248,10 +255,9 @@ export class HomePage implements OnInit {
     return await modal.present();
   }
 
-  hurrengoPausoaUpdate(){
-    document.getElementById('hurrengoPausoaTxt').innerHTML = this.historia[this.historiaFase].izena;
+  hurrengoPausoaUpdate() {
+    document.getElementById('hurrengoPausoaTxt').innerHTML =
+      this.historia[this.historiaFase].izena;
+      this.hurrengoGuneImg = "../../assets/img/"+this.koordenadak[this.historia[this.historiaFase].izena].img;
   }
-
-
-
 }

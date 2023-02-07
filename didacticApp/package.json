@@ -18,6 +18,7 @@
   },
   "private": true,
   "dependencies": {
+    "-": "^0.0.1",
     "@angular/common": "^15.0.0",
     "@angular/core": "^15.0.0",
     "@angular/forms": "^15.0.0",
@@ -27,6 +28,7 @@
     "@awesome-cordova-plugins/geolocation": "^6.2.0",
     "@ionic/angular": "^6.1.9",
     "@ionic/utils-fs": "^3.1.6",
+    "@types/jquery": "^3.5.16",
     "ionicons": "^6.0.3",
     "jquery": "^3.6.3",
     "leaflet": "^1.9.3",
@@ -34,6 +36,7 @@
     "leaflet-rotatedmarker": "^0.2.0",
     "leaflet-routing-machine": "^3.2.12",
     "rxjs": "~7.5.0",
+    "save": "^2.9.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
@@ -56,6 +59,8 @@
     "@typescript-eslint/eslint-plugin": "5.3.0",
     "@typescript-eslint/parser": "5.3.0",
     "cordova-plugin-geolocation": "^4.1.0",
+    "cordova-plugin-nativestorage": "^2.3.2",
+    "cordova-sqlite-storage": "^6.1.0",
     "eslint": "^7.6.0",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsdoc": "30.7.6",
@@ -76,7 +81,9 @@
     "plugins": {
       "cordova-plugin-geolocation": {
         "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"
-      }
+      },
+      "cordova-plugin-nativestorage": {},
+      "cordova-sqlite-storage": {}
     }
   }
 }

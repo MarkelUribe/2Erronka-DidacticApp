@@ -69,7 +69,19 @@ const routes: Routes = [
   {
     path: 'hitz-ezkutua',
     loadChildren: () => import('./hitz-ezkutua/hitz-ezkutua.module').then( m => m.HitzEzkutuaPageModule)
+  },  {
+    path: 'laberintoa',
+    loadChildren: () => import('./laberintoa/laberintoa.module').then( m => m.LaberintoaPageModule)
   },
+  {
+    path: 'anboto',
+    loadChildren: () => import('./anboto/anboto.module').then( m => m.AnbotoPageModule)
+  },
+  {
+    path: 'asmakizuna',
+    loadChildren: () => import('./asmakizuna/asmakizuna.module').then( m => m.AsmakizunaPageModule)
+  },
+
 
 
 ];

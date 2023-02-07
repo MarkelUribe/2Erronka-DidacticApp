@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 // Declare jquery
 declare var $: any;
 declare var WordFindGame: any;
@@ -19,12 +19,13 @@ declare global {
 })
 export class HizkiSopaPage implements OnInit {
 
-  constructor() { 
+  constructor(private router: Router) { 
 
   }
 
   hurrengoJokoa(){
-    
+    localStorage.setItem('fase', '1');
+    this.router.navigate(['/home']);
   }
 
 
@@ -82,6 +83,7 @@ export class HizkiSopaPage implements OnInit {
 
       $("#solve").click(() => window.game.solve()); 
     });
+
   }
 
 }

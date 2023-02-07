@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController} from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-puzzlea',
@@ -14,7 +15,7 @@ export class PuzzleaPage implements OnInit {
   casilla2:number;
  
 
-  constructor(public  alertController: AlertController) {
+  constructor(public  alertController: AlertController, private router: Router) {
    
   }
   ngOnInit(){
@@ -57,6 +58,7 @@ export class PuzzleaPage implements OnInit {
       var correcto=this.comprobarPuzzleFinalizado();
       if(correcto==true){
        this.mostrarMensajeGanar();
+
       }
     }
   }
@@ -88,7 +90,8 @@ export class PuzzleaPage implements OnInit {
      buttons:[{
       text:"Jarraitu",
       handler:()=>{
-        
+         localStorage.setItem('fase', '3');
+          this.router.navigate(['/home']);
       } }]}
     );
      await alert.present();
