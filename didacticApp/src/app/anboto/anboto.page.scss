@@ -79,3 +79,20 @@
 
     }
   }
+
+
+  #amaieraTextua{
+    text-align: center;
+    display: none;
+    position: absolute;
+    top: 10%;
+    padding: 25px;
+    width: 80%;
+    left: 10%;
+    background-color: rgb(247 247 247 / 86%);
+    border-radius: 15px;
+    button{
+        padding:10px;
+        border-radius: 10px;
+    }
+  }

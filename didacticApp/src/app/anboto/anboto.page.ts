@@ -24,6 +24,9 @@ export class AnbotoPage {
         console.log('Bi animazioak geratu dituzu!!!');
         (document.querySelector('.animation-container') as HTMLElement).style.backgroundImage ='url("../../assets/img/anboto/kobazulo_emaitza.jpg")';
         
+        var x = document.getElementById('amaieraTextua');
+        x.style.display = "block";
+
         // Leire argazkia ezabatu
         let leire_img = document.querySelector('.animation-item');
         leire_img.parentNode.removeChild(leire_img);
@@ -45,8 +48,12 @@ export class AnbotoPage {
     for (var i = 0; i < items.length; i++) {
       if ((items[i] as HTMLElement).style.animationPlayState == 'paused') {
         console.log('Bi animazioak geratu dituzu!!!');
+       
+        var x = document.getElementById('amaieraTextua');
+        x.style.display = "block";
         (document.querySelector('.animation-container') as HTMLElement).style.backgroundImage ='url("../../assets/img/anboto/kobazulo_emaitza.jpg")';
         
+
         // Leire argazkia ezabatu
         let leire_img = document.querySelector('.animation-item');
         leire_img.parentNode.removeChild(leire_img);

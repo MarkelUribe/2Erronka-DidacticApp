@@ -2,19 +2,30 @@
 
 
   <ion-content [fullscreen]="true">
+    <h1>Entzun asmakizuna</h1>
+    <div id="kutxa">
     <div>
-      <h1>Entzun asmakizuna</h1>
+        <img src="../../assets/img/13. IRUDIA.png">
       <audio controls><source src="../../assets/audio/UDALETXEA.mp4">
       </audio>
     </div>
-  <div>
-    <mat-form-field >
+  
+
+    <!--<mat-form-field >
       <mat-label>Zein da alkateak lan egiten duen eraikina?</mat-label>
       <input [(ngModel)]='inputa' matInput>
-    </mat-form-field>
+    </mat-form-field>-->
+
+    <ion-item>
+      <ion-label position="floating">Zein da alkateak lan egiten duen eraikina?</ion-label>
+      <ion-input placeholder="Textua idatzi" [(ngModel)]='inputa'></ion-input>
+    </ion-item>
+
   <ion-row>
     <ion-button (click)="balidatu()">Konprobatu</ion-button>
   </ion-row>
+
+  
   
   </div>
   
