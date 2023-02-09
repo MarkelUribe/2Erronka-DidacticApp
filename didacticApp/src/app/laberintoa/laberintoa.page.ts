@@ -65,7 +65,8 @@ export class LaberintoaPage {
           var x1 = $('#img1').position().left;
           var y = $('#img1').position().top;
           if ((y == 130 || y == 110) && x1 == 255) {
-            alert('Ez da irteera zuzena');
+            $("#irteeraDiv").text(" Ez da Irteera zuzena");
+            $("#irteeraDiv").show().delay(2000).hide(0);
           }
         }
       });
@@ -81,7 +82,8 @@ export class LaberintoaPage {
           var x1 = $('#img1').position().left;
           var y = $('#img1').position().top;
           if ((y == 530 || y == 550) && x1 == 115) {
-            alert('Ez da irteera zuzena');
+            $("#irteeraDiv").text(" Ez da Irteera zuzena");
+            $("#irteeraDiv").show().delay(2000).hide(0);
           }
         }
       });
@@ -97,7 +99,8 @@ export class LaberintoaPage {
           var x1 = $('#img1').position().left;
           var y = $('#img1').position().top;
           if ((x1 == 215 || x1 == 235) && y == 250) {
-            alert('Ez da irteera zuzena');
+            $("#irteeraDiv").text(" Ez da Irteera zuzena");
+            $("#irteeraDiv").show().delay(2000).hide(0);
           }
         }
       });
@@ -113,10 +116,12 @@ export class LaberintoaPage {
           var y = $('#img1').position().top;
           var x1 = $('#img1').position().left;
           if (x1 == 35 && y == 330) {
-            alert('Ez da irteera zuzena');
+            $("#irteeraDiv").text(" Ez da Irteera zuzena");
+            $("#irteeraDiv").show().delay(2000).hide(0);
+
+          
           }
           if (x1 == 455 && y == 150) {
-            alert('Irteera zuzena');
             $("#irteeraDiv").show();
           }
         }
@@ -129,4 +134,9 @@ export class LaberintoaPage {
     localStorage.setItem('fase', '2');
     this.router.navigate(['/home']);
   }
+  
+  
+
 }
+
+
