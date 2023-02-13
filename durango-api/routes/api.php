@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\KoordenatuakController;
+use App\Http\Controllers\KoordenadaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,5 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::apiResource('koordenatua', KoordenatuakController::class);
-
+Route::apiResource('koordenadak', KoordenadaController::class);

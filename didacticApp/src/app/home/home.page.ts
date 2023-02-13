@@ -10,9 +10,11 @@ import 'leaflet-rotatedmarker';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import * as jsonData from '../../assets/koordenadak.json';
 import * as jsonData2 from '../../assets/historia.json';
-import { fromEventPattern } from 'rxjs';
+import { fromEventPattern, Observable } from 'rxjs';
 import { ModalController, AlertController } from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-home',
@@ -22,7 +24,7 @@ import { ModalPage } from '../modal/modal.page';
 export class HomePage implements OnInit {
   private map: any;
   zoom: number = 17.5;
-  koordenadak: any = jsonData;
+  koordenadak: any;
   historia: any = jsonData2;
   historiaFase: number = 0;
   hurrengoGuneImg: string;
@@ -32,15 +34,32 @@ export class HomePage implements OnInit {
   tracking: boolean = true;
   alertPresented: boolean = false;
   modalPresented: boolean = false;
+  mapinitialized: boolean = false;
 
   constructor(
     private geo: Geolocation,
     private alertController: AlertController,
     public modalCtrl: ModalController,
-    private router: Router
+    private router: Router,
+    private http: HttpClient
   ) {}
 
+  getKoordenadak(): void{
+    this.http.get('http://localhost:8000/api/koordenadak')
+    .subscribe(data => {
+      this.koordenadak = data; 
+      if(this.mapinitialized != true){
+        this.whereAmI();
+        this.initMap();
+        this.mapinitialized = true;
+      }
+    },
+    error => console.log('Error::' + error)); }
+
   ngOnInit(): void {
+
+   this.getKoordenadak();
+
     if(localStorage.getItem('fase') == null){
       localStorage.setItem('fase', this.historiaFase.toString());
       this.router.navigate(['/hasiera']);
@@ -48,8 +67,7 @@ export class HomePage implements OnInit {
       this.historiaFase = +localStorage.getItem('fase');
     }
 
-    this.whereAmI();
-    this.initMap();
+    
   }
 
   jokalariarenPosizioraJoan() {

@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('koordenatuaks', function (Blueprint $table) {
+        Schema::create('koordenadas', function (Blueprint $table) {
             $table->id();
-            $table->string("gunearen_izena");
-            $table->string("helbidea");
-            $table->double("latitudea");
-            $table->double("longitudea");
             $table->timestamps();
+            $table->string('izena');
+            $table->double('lat');
+            $table->double('lon');
+            $table->string('kalea');
+            $table->string('img');
         });
     }
 
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('koordenatuaks');
+        Schema::dropIfExists('koordenadas');
     }
 };
