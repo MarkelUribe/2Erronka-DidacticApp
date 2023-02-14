@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController} from '@ionic/angular';
 import { Router } from '@angular/router';
 
 let imageArray = [];
@@ -12,15 +13,15 @@ export class HitzEzkutuaPage {
   message: string;
 
   kontagailua = 0;
-  constructor() {}
+  constructor(public  alertController: AlertController,private router: Router) {}
 
   submitMessage() {
     console.log(this.message);
     if (
-      this.message == 'Anbotoko Mariren Kondaira' ||
-      this.message == 'anbotoko mariren kondaira'
+      this.message.toUpperCase() == 'anbotoko mariren kondaira'.toUpperCase()
     ) {
       // Lehio bat sartu, erabiltzailea zorionduz!!!
+      this.mostrarMensajeGanar();
       console.log('Oso ondo!');
     } if (this.message == '') {
       // Lehio bat sartu, ez duela ezer idatzi azalduz!!!
@@ -33,8 +34,34 @@ export class HitzEzkutuaPage {
 
       if (this.kontagailua == 3) {
         // Lehio bat irekitzea, aukerak bukatu direla azalduz eta mapara bueltatu.
+        this.mostrarMensajePerder();
         console.log('Aukerak bukatu dira!!!');
       }
     }
+  }
+  async mostrarMensajeGanar(){
+    const alert= await this.alertController.create(
+      {header:"Zorionak!! Irabazi duzu",
+     buttons:[{
+      text:"Jarraitu",
+      handler:()=>{
+         localStorage.setItem('fase', '6');
+          this.router.navigate(['/home']);
+      } }]}
+    );
+     await alert.present();
+
+  }
+  async mostrarMensajePerder(){
+    const alert= await this.alertController.create(
+      {header:"Sentitzen dut 3 Aukera galdu dituzu",
+     buttons:[{
+      text:"Jarraitu",
+      handler:()=>{
+          this.router.navigate(['/home']);
+      } }]}
+    );
+     await alert.present();
+
   }
 }
