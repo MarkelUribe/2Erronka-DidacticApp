@@ -54,7 +54,14 @@ export class HomePage implements OnInit {
         this.mapinitialized = true;
       }
     },
-    error => console.log('Error::' + error)); }
+    error => {
+      console.log('Error::' + error);
+      this.koordenadak = jsonData;
+      this.whereAmI();
+      this.initMap();
+      this.mapinitialized = true;
+    });
+  }
 
   ngOnInit(): void {
 
