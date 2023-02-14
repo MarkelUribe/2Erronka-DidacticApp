@@ -64,7 +64,7 @@ INSERT INTO `koordenadas` (`id`, `created_at`, `updated_at`, `izena`, `lat`, `lo
 (3, NULL, NULL, 'Liburu eta Disko Azoka', 43.1713, -2.63095, 'Landako Etorbidea, 6', '6. IRUDIA.png'),
 (4, NULL, NULL, 'Durangoko bonbardaketa', 43.16845, -2.63115, 'Uribarri Kalea, s/n', '11. IRUDIA.png'),
 (5, NULL, NULL, 'San Agustin Kultur Gunea', 43.16741, -2.63283, 'San Agustinalde 12', '13. IRUDIA.png'),
-(6, NULL, NULL, 'San Faustoko Jaiak', 43.16723, -2.63202, 'Barrenkalea Kalea, 17', '13. IRUDIA.png'),
+(6, NULL, NULL, 'San Faustoko Jaiak', 43.16723, -2.63202, 'Barrenkalea Kalea, 17', '14. IRUDIA.png'),
 (7, NULL, NULL, 'Santa Anako Arkua', 43.165792, -2.632093, 'Santanoste Kalea, 2', '16. IRUDIA.png'),
 (8, NULL, NULL, 'Anbotoko Mariren Kondaira', 43.16401, -2.62216, 'Antso Estegiz Zumardia, 25002', '17. IRUDIA.png');
 
