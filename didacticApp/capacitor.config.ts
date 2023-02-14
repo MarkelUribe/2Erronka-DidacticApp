@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.didaktikapp.app',
+  appId: 'io.ionic.starter',
   appName: 'didacticApp',
   webDir: 'www',
   bundledWebRuntime: false,
