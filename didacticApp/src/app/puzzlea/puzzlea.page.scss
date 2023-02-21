@@ -1,10 +1,9 @@
+@import 'mixin';
 h3{
     text-align: center;
 }
 #col{
-    display: grid;
-    grid-template-columns: repeat(3,auto);
-    justify-content: center;
+   @include grid;
 }
 #puzzleKkutxa{
     margin-top: 20vh;

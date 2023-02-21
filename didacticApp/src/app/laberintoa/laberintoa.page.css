@@ -1,0 +1,436 @@
+/*@mixin aldaketa(){
+    @media only screen and (max-width:600px){
+        @content;
+
+
+    }
+
+
+  }*/
+body {
+  background-color: #b3ffdc;
+}
+
+h1 {
+  color: #0092d6;
+  text-align: center;
+  font-weight: bold;
+}
+
+#img1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 155px;
+  top: 110px;
+  border: 2px solid #0AA7F2;
+  border-radius: 5px;
+}
+
+#img2 {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 444px;
+  top: 108px;
+  border: 2px solid #0AA7F2;
+  border-radius: 5px;
+}
+
+#img3 {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 205px;
+  top: 280px;
+  border: 2px solid #0AA7F2;
+  border-radius: 5px;
+}
+
+#img4 {
+  position: absolute;
+  width: 60px;
+  height: 55px;
+  left: 145px;
+  top: 525px;
+  border: 2px solid #0AA7F2;
+  border-radius: 5px;
+}
+
+#img5 {
+  position: absolute;
+  width: 60px;
+  height: 55px;
+  left: 25px;
+  top: 285px;
+  border: 2px solid #0AA7F2;
+  border-radius: 5px;
+}
+
+#img6 {
+  position: absolute;
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  left: 205px;
+  top: 105px;
+  border: 2px solid #0AA7F2;
+  border-radius: 5px;
+}
+
+#lab1 {
+  position: absolute;
+  left: 20px;
+  top: 100px;
+  border: 4px solid #0AA7F2;
+  width: 120px;
+  /*@include aldaketa(){
+    width: calc(120px/3);
+  };*/
+}
+
+#lab2 {
+  position: absolute;
+  left: 200px;
+  top: 100px;
+  border: 4px solid #0AA7F2;
+  width: 300px;
+}
+
+#lab3 {
+  position: absolute;
+  left: 200px;
+  top: 160px;
+  border: 4px solid #0AA7F2;
+  width: 60px;
+}
+
+#lab4 {
+  position: absolute;
+  left: 320px;
+  top: 160px;
+  border: 4px solid #0AA7F2;
+  width: 73px;
+}
+
+#lab5 {
+  position: absolute;
+  left: 80px;
+  top: 220px;
+  border: 4px solid #0AA7F2;
+  width: 120px;
+  /* @include aldaketa(){
+     width: calc(120px/3);
+     left: 70px;
+   };*/
+}
+
+#lab6 {
+  position: absolute;
+  left: 260px;
+  top: 220px;
+  border: 4px solid #0AA7F2;
+  width: 60px;
+}
+
+#lab7 {
+  position: absolute;
+  left: 440px;
+  top: 220px;
+  border: 4px solid #0AA7F2;
+  width: 60px;
+}
+
+#lab8 {
+  position: absolute;
+  left: 20px;
+  top: 280px;
+  border: 4px solid #0AA7F2;
+  width: 120px;
+}
+
+#lab9 {
+  position: absolute;
+  left: 320px;
+  top: 280px;
+  border: 4px solid #0AA7F2;
+  width: 60px;
+}
+
+#lab10 {
+  position: absolute;
+  left: 260px;
+  top: 280px;
+  border: 4px solid #0AA7F2;
+  height: 60px;
+}
+
+#lab11 {
+  position: absolute;
+  left: 200px;
+  top: 340px;
+  border: 4px solid #0AA7F2;
+  width: 120px;
+}
+
+#lab12 {
+  position: absolute;
+  left: 380px;
+  top: 280px;
+  border: 4px solid #0AA7F2;
+  width: 120px;
+}
+
+#lab13 {
+  position: absolute;
+  left: 80px;
+  top: 400px;
+  border: 4px solid #0AA7F2;
+  width: 180px;
+  /*@include aldaketa(){
+    width: calc(180px/3)+20;
+  };*/
+}
+
+#lab14 {
+  position: absolute;
+  left: 320px;
+  top: 400px;
+  border: 4px solid #0AA7F2;
+  width: 120px;
+}
+
+#lab15 {
+  position: absolute;
+  left: 80px;
+  top: 460px;
+  border: 4px solid #0AA7F2;
+  width: 180px;
+  /*@include aldaketa(){
+    width: calc(180px/3)+20;
+  };*/
+}
+
+#lab16 {
+  position: absolute;
+  left: 380px;
+  top: 460px;
+  border: 4px solid #0AA7F2;
+  width: 60px;
+}
+
+#lab17 {
+  position: absolute;
+  left: 80px;
+  top: 520px;
+  border: 4px solid #0AA7F2;
+  width: 120px;
+}
+
+#lab18 {
+  position: absolute;
+  left: 320px;
+  top: 520px;
+  border: 4px solid #0AA7F2;
+  width: 60px;
+}
+
+#lab19 {
+  position: absolute;
+  left: 20px;
+  top: 580px;
+  border: 4px solid #0AA7F2;
+  width: 480px;
+}
+
+#lab20 {
+  position: absolute;
+  left: 140px;
+  top: 100px;
+  border: 4px solid #0AA7F2;
+  width: 60px;
+  /*@include aldaketa(){
+    left: calc(140px/3);
+  };*/
+}
+
+#vlab1 {
+  position: absolute;
+  left: 140px;
+  top: 100px;
+  border: 4px solid #0AA7F2;
+}
+
+#vlab2 {
+  position: absolute;
+  left: 200px;
+  top: 100px;
+  border: 4px solid #0AA7F2;
+  height: 240px;
+}
+
+#vlab3 {
+  position: absolute;
+  left: 500px;
+  top: 100px;
+  border: 4px solid #0AA7F2;
+  height: 180px;
+}
+
+#vlab4 {
+  position: absolute;
+  left: 20px;
+  top: 100px;
+  border: 4px solid #0AA7F2;
+  height: 480px;
+}
+
+#vlab5 {
+  position: absolute;
+  left: 80px;
+  top: 160px;
+  border: 4px solid #0AA7F2;
+  height: 60px;
+  /*@include aldaketa(){
+    left: 70px;
+  };*/
+}
+
+#vlab6 {
+  position: absolute;
+  left: 320px;
+  top: 160px;
+  border: 4px solid #0AA7F2;
+  height: 120px;
+}
+
+#vlab7 {
+  position: absolute;
+  left: 440px;
+  top: 108px;
+  border: 4px solid #0AA7F2;
+  height: 60px;
+}
+
+#vlab8 {
+  position: absolute;
+  left: 80px;
+  top: 280px;
+  border: 4px solid #0AA7F2;
+  height: 120px;
+}
+
+#vlab9 {
+  position: absolute;
+  left: 380px;
+  top: 280px;
+  border: 4px solid #0AA7F2;
+  height: 60px;
+}
+
+#vlab10 {
+  position: absolute;
+  left: 500px;
+  top: 280px;
+  border: 4px solid #0AA7F2;
+  height: 300px;
+}
+
+#vlab11 {
+  position: absolute;
+  left: 320px;
+  top: 340px;
+  border: 4px solid #0AA7F2;
+  height: 180px;
+}
+
+#vlab12 {
+  position: absolute;
+  left: 260px;
+  top: 400px;
+  border: 4px solid #0AA7F2;
+  height: 120px;
+  /*@include aldaketa(){
+    left: calc(260px/2)+25;
+  };*/
+}
+
+#vlab13 {
+  position: absolute;
+  left: 440px;
+  top: 460px;
+  border: 4px solid #0AA7F2;
+  height: 60px;
+}
+
+#vlab14 {
+  position: absolute;
+  left: 200px;
+  top: 520px;
+  border: 4px solid #0AA7F2;
+  height: 60px;
+}
+
+#boton1 {
+  position: absolute;
+  left: 200px;
+  top: 648px;
+  border: 2px solid #0092d6;
+  width: 40px;
+  height: 20px;
+  background-color: #74d3ff;
+  color: #0092d6;
+}
+
+#boton2 {
+  position: absolute;
+  left: 300px;
+  top: 648px;
+  border: 2px solid #0092d6;
+  width: 40px;
+  height: 20px;
+  background-color: #74d3ff;
+  color: #0092d6;
+}
+
+#boton3 {
+  position: absolute;
+  left: 257px;
+  top: 670px;
+  border: 2px solid #0092d6;
+  width: 25px;
+  height: 40px;
+  background-color: #74d3ff;
+  color: #0092d6;
+  text-align: center;
+}
+
+#boton4 {
+  position: absolute;
+  left: 257px;
+  top: 600px;
+  border: 2px solid #0092d6;
+  width: 25px;
+  height: 40px;
+  background-color: #74d3ff;
+  color: #0092d6;
+}
+
+#irteeraDiv {
+  display: none;
+  position: absolute;
+  margin: auto;
+  z-index: 500;
+  text-align: center;
+  width: 80%;
+  left: 10%;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgba(213, 231, 252, 0.94);
+}
+#irteeraDiv button {
+  font-size: larger;
+  padding: 15px;
+  border-radius: 15px;
+}/*# sourceMappingURL=laberintoa.page.css.map */
